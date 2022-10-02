@@ -41,7 +41,7 @@
                     Edit
                 </a>
 
-                <a class="dropdown-item" href="{{ route('pre_intervies.edit', $pre_interview->id) }}">
+                <a class="dropdown-item" href="{{ route('interview_name_list_details', $pre_interview->id) }}">
                     INTERVIEW NAME LIST
                 </a>
 

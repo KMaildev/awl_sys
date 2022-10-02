@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreNameList;
+use App\Imports\NameListImport;
 use App\Models\PreInterview;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InterviewNameListController extends Controller
 {
@@ -33,9 +36,14 @@ class InterviewNameListController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreNameList $request)
     {
-        //
+        $pre_interview_id = $request->pre_interview_id;
+        $demand_id = $request->demand_id;
+        $overseas_agencie_id = $request->overseas_agencie_id;
+
+        Excel::import(new NameListImport($pre_interview_id, $demand_id, $overseas_agencie_id), request()->file('name_list_file'));
+        return redirect()->back()->with('success', 'Your processing has been completed.');
     }
 
     /**

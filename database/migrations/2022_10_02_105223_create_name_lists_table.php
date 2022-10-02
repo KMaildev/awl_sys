@@ -40,10 +40,7 @@ class CreateNameListsTable extends Migration
             $table->text('labour_card_no')->nullable();
             $table->text('issue_of_labour_date')->nullable();
 
-
             $table->text('join_date')->nullable();
-
-
             $table->timestamps();
         });
     }

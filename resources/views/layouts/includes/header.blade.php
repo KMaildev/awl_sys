@@ -44,6 +44,10 @@
         .cw {
             color: white !important;
         }
+
+        .right {
+            text-align: right;
+        }
     </style>
 </head>
 

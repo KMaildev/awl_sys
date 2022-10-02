@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DemandController;
 use App\Http\Controllers\OverseasAgentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -17,4 +18,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class);
     Route::resource('country', CountryController::class);
     Route::resource('overseas_agent', OverseasAgentController::class);
+    Route::resource('demand', DemandController::class);
 });

@@ -16,11 +16,13 @@
                        Configuration
                    </a>
                    <ul class="menu-sub">
-                       <li class="menu-item active">
+
+                       <li class="menu-item">
                            <a href="{{ route('country.index') }}" class="menu-link">
                                Country
                            </a>
                        </li>
+
                        <li class="menu-item">
                            <a href="{{ route('overseas_agent.index') }}" class="menu-link">
                                Employer
@@ -31,7 +33,7 @@
 
 
                <li class="menu-item">
-                   <a href="{{ route('home') }}" class="menu-link">
+                   <a href="{{ route('demand.index') }}" class="menu-link">
                        Demand
                    </a>
                </li>
@@ -57,6 +59,19 @@
                <li class="menu-item">
                    <a href="{{ route('home') }}" class="menu-link">
                        Government Process
+                   </a>
+               </li>
+
+
+               <li class="menu-item">
+                   <a href="{{ route('home') }}" class="menu-link">
+                       Sending
+                   </a>
+               </li>
+
+               <li class="menu-item">
+                   <a href="{{ route('home') }}" class="menu-link">
+                       File Manager
                    </a>
                </li>
 

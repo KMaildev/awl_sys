@@ -39,10 +39,25 @@
                </li>
 
                <li class="menu-item">
-                   <a href="{{ route('home') }}" class="menu-link">
+                   <a href="javascript:void(0)" class="menu-link menu-toggle">
                        Interview
                    </a>
+                   <ul class="menu-sub">
+
+                       <li class="menu-item">
+                           <a href="{{ route('pre_intervies.index') }}" class="menu-link">
+                               Pre Interview
+                           </a>
+                       </li>
+
+                       <li class="menu-item">
+                           <a href="{{ route('overseas_agent.index') }}" class="menu-link">
+                               Thai/Employer Interview
+                           </a>
+                       </li>
+                   </ul>
                </li>
+
 
                <li class="menu-item">
                    <a href="{{ route('home') }}" class="menu-link">

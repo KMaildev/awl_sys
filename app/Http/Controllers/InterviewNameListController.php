@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreNameList;
 use App\Imports\NameListImport;
+use App\Models\NameList;
 use App\Models\PreInterview;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -100,6 +101,7 @@ class InterviewNameListController extends Controller
     public function interviewNameListDetails($id = null)
     {
         $pre_interview = PreInterview::findOrFail($id);
-        return view('interview_name_list.details', compact('pre_interview'));
+        $name_lists = NameList::where('pre_interview_id', $id)->get();
+        return view('interview_name_list.details', compact('pre_interview', 'name_lists'));
     }
 }

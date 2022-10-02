@@ -29,13 +29,31 @@
 <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
 <script type="text/javascript" src="{{ url('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
 <script src="{{ asset('install/datetime/jquery.datetimepicker.js') }}"></script>
-
+<script src="{{ asset('install/sweetalert/sweetalert.min.js') }}"></script>
 <script>
     let date = new Date();
     let now = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
     $(".date_picker").datetimepicker({
         value: now,
         format: "Y-m-d h:i A",
+    });
+
+
+    $('.del_confirm').click(function(event) {
+        var form = $(this).closest("form");
+        event.preventDefault();
+        swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                }
+            });
     });
 </script>
 @yield('script')

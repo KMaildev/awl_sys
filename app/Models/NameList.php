@@ -33,6 +33,7 @@ class NameList extends Model
         'demand_id',
         'overseas_agencie_id',
 
+        'bg_color',
         'join_date',
         'created_at',
         'updated_at',

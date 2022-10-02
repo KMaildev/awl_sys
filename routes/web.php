@@ -25,4 +25,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('pre_intervies', PreInterviewController::class);
     Route::resource('interview_name_list', InterviewNameListController::class);
     Route::get('interview_name_list_details/{id}', [InterviewNameListController::class, 'interviewNameListDetails'])->name('interview_name_list_details');
+    Route::get('interview_name_list_import/{id}', [InterviewNameListController::class, 'interviewNameListImport'])->name('interview_name_list_import');
 });

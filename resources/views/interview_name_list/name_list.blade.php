@@ -6,6 +6,9 @@
     </h4>
 </div>
 
+<a href="{{ route('interview_name_list_import', $pre_interview->id) }}" class="text-success">
+    Excel Download
+</a>
 <div class="table-responsive text-nowrap">
     <table class="table table-bordered table-sm">
         <thead>
@@ -82,11 +85,16 @@
                     Remark
                 </th>
 
+                <th class="text-center cw">
+                    Action
+                </th>
+
             </tr>
         </thead>
         <tbody class="table-border-bottom-0">
             @foreach ($name_lists as $name_list)
-                <tr>
+                <tr style="background-color: {{ $name_list->bg_color ?? '' }}" data-bs-toggle="modal"
+                    data-bs-target="#nameListEdit_{{ $name_list->id }}">
                     <td>
                         {{ $loop->iteration }}
                     </td>
@@ -159,7 +167,17 @@
                         {{ $name_list->remark ?? '' }}
                     </td>
 
+                    <td class="text-center">
+                        <form action="{{ route('interview_name_list.destroy', $name_list->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <a class="text-danger del_confirm" id="confirm-text" data-toggle="tooltip">
+                                Delete
+                            </a>
+                        </form>
+                    </td>
                 </tr>
+                @include('interview_name_list.shared.name_list_edit')
             @endforeach
         </tbody>
     </table>

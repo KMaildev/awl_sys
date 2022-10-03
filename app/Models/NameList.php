@@ -38,4 +38,9 @@ class NameList extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function pre_interviews_table()
+    {
+        return $this->belongsTo(PreInterview::class, 'pre_interview_id', 'id');
+    }
 }

@@ -51,7 +51,7 @@
                        </li>
 
                        <li class="menu-item">
-                           <a href="{{ route('overseas_agent.index') }}" class="menu-link">
+                           <a href="{{ route('employer_interview.index') }}" class="menu-link">
                                Thai/Employer Interview
                            </a>
                        </li>

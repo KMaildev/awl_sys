@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePreInterview;
-use App\Http\Requests\UpdatePreInterview;
 use App\Models\Demand;
-use App\Models\OverseasAgency;
-use App\Models\PreInterview;
+use App\Models\EmployerInterview;
 use Illuminate\Http\Request;
 
-class PreInterviewController extends Controller
+class EmployerInterviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,11 +19,11 @@ class PreInterviewController extends Controller
         $is_create = true;
 
         $search = request('search');
-        $pre_interviews = PreInterview::whereHas('overseas_agencie', function ($q) use ($search) {
+        $pre_interviews = EmployerInterview::whereHas('overseas_agencie', function ($q) use ($search) {
             $q->where('employer_name', 'LIKE', '%' . $search . '%');
             $q->orWhere('type_of_company', 'LIKE', '%' . $search . '%');
         })->get();
-        return view('pre_intervies.index', compact('demands', 'pre_interviews', 'is_create'));
+        return view('employer_interview.index', compact('demands', 'pre_interviews', 'is_create'));
     }
 
     /**
@@ -45,13 +42,13 @@ class PreInterviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePreInterview $request)
+    public function store(Request $request)
     {
         $demand_id = $request->demand_id;
         $demand_data = Demand::findOrFail($demand_id);
         $overseas_agencie_id = $demand_data->overseas_agencie_id;
 
-        $pre_interview = new PreInterview();
+        $pre_interview = new EmployerInterview();
         $pre_interview->demand_id = $request->demand_id;
         $pre_interview->overseas_agencie_id = $overseas_agencie_id;
         $pre_interview->interview_title = $request->interview_title;
@@ -85,13 +82,13 @@ class PreInterviewController extends Controller
         $is_create = false;
 
         $search = request('search');
-        $pre_interviews = PreInterview::whereHas('overseas_agencie', function ($q) use ($search) {
+        $pre_interviews = EmployerInterview::whereHas('overseas_agencie', function ($q) use ($search) {
             $q->where('employer_name', 'LIKE', '%' . $search . '%');
             $q->orWhere('type_of_company', 'LIKE', '%' . $search . '%');
         })->get();
 
-        $pre_interview_edit = PreInterview::findOrFail($id);
-        return view('pre_intervies.index', compact('demands', 'pre_interviews', 'is_create', 'pre_interview_edit'));
+        $pre_interview_edit = EmployerInterview::findOrFail($id);
+        return view('employer_interview.index', compact('demands', 'pre_interviews', 'is_create', 'pre_interview_edit'));
     }
 
     /**
@@ -101,13 +98,13 @@ class PreInterviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePreInterview $request, $id)
+    public function update(Request $request, $id)
     {
         $demand_id = $request->demand_id;
         $demand_data = Demand::findOrFail($demand_id);
         $overseas_agencie_id = $demand_data->overseas_agencie_id;
 
-        $pre_interview = PreInterview::findOrFail($id);
+        $pre_interview = EmployerInterview::findOrFail($id);
         $pre_interview->demand_id = $request->demand_id;
         $pre_interview->overseas_agencie_id = $overseas_agencie_id;
         $pre_interview->interview_title = $request->interview_title;
@@ -115,7 +112,7 @@ class PreInterviewController extends Controller
         $pre_interview->male = $request->male;
         $pre_interview->female = $request->female;
         $pre_interview->update();
-        return redirect()->route('pre_intervies.index')->with('success', 'Your processing has been completed.');
+        return redirect()->route('employer_interview.index')->with('success', 'Your processing has been completed.');
     }
 
     /**
@@ -126,8 +123,8 @@ class PreInterviewController extends Controller
      */
     public function destroy($id)
     {
-        $passport = PreInterview::findOrFail($id);
+        $passport = EmployerInterview::findOrFail($id);
         $passport->delete();
-        return redirect()->route('pre_intervies.index')->with('success', 'Your processing has been completed.');
+        return redirect()->route('employer_interview.index')->with('success', 'Your processing has been completed.');
     }
 }

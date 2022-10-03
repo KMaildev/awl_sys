@@ -7,11 +7,11 @@
                 <div class="card-body">
                     <div class="card-title header-elements">
                         <h5 class="m-0 me-2">
-                            Pre Interview List
+                            Thai/Employer Interview List
                         </h5>
                         <div class="card-title-elements ms-auto">
                             <div class="card-header-elements ms-auto">
-                                <form action="{{ route('pre_intervies.index') }}" method="GET" autocomplete="off">
+                                <form action="{{ route('employer_interview.index') }}" method="GET" autocomplete="off">
                                     <input type="text" class="form-control form-control-sm" placeholder="Search"
                                         name="search">
                                 </form>
@@ -60,11 +60,11 @@
                         </thead>
                         <tbody class="table-border-bottom-0">
                             @if ($is_create)
-                                @include('pre_intervies.create')
+                                @include('employer_interview.create')
                             @else
-                                @include('pre_intervies.edit')
+                                @include('employer_interview.edit')
                             @endif
-                            @include('pre_intervies.pre_interview_list')
+                            @include('employer_interview.employer_interview_list')
                         </tbody>
 
                         <tr>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\NameListExport;
 use App\Http\Requests\StoreNameList;
 use App\Imports\NameListImport;
+use App\Models\EmployerInterview;
 use App\Models\NameList;
 use App\Models\PreInterview;
 use Illuminate\Http\Request;
@@ -135,5 +136,21 @@ class InterviewNameListController extends Controller
     {
         $name_lists = NameList::where('pre_interview_id', $id)->get();
         return Excel::download(new NameListExport($name_lists), 'interview_name_list_' . date("Y-m-d H:i:s") . '.xlsx');
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function employerInterviewNameListDetails($id = null)
+    {
+        $employer_interview = EmployerInterview::findOrFail($id);
+
+        $demand_id = $employer_interview->demand_id;
+        $name_lists = NameList::where('demand_id', $demand_id)->get();
+        return view('interview_name_list.employer_interview.name_list_details', compact('employer_interview', 'name_lists'));
     }
 }

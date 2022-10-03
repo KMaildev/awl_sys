@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DemandController;
+use App\Http\Controllers\EmployerInterviewController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InterviewNameListController;
 use App\Http\Controllers\OverseasAgentController;
@@ -26,4 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('interview_name_list', InterviewNameListController::class);
     Route::get('interview_name_list_details/{id}', [InterviewNameListController::class, 'interviewNameListDetails'])->name('interview_name_list_details');
     Route::get('interview_name_list_import/{id}', [InterviewNameListController::class, 'interviewNameListImport'])->name('interview_name_list_import');
+    Route::get('employer_interview_name_list_details/{id}', [InterviewNameListController::class, 'employerInterviewNameListDetails'])->name('employer_interview_name_list_details');
+
+    Route::resource('employer_interview', EmployerInterviewController::class);
 });

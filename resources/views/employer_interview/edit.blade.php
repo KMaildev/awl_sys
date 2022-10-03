@@ -1,4 +1,5 @@
-<form action="{{ route('pre_intervies.update', $pre_interview_edit->id) }}" method="post" id="create-form" autocomplete="off">
+<form action="{{ route('employer_interview.update', $pre_interview_edit->id) }}" method="post" id="create-form"
+    autocomplete="off">
     @csrf
     @method('PUT')
     <tr>

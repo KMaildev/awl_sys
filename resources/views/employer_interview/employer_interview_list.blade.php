@@ -41,15 +41,15 @@
 
             <div class="dropdown-menu">
 
-                <a class="dropdown-item" href="{{ route('pre_intervies.edit', $pre_interview->id) }}">
+                <a class="dropdown-item" href="{{ route('employer_interview.edit', $pre_interview->id) }}">
                     Edit
                 </a>
 
-                <a class="dropdown-item" href="{{ route('interview_name_list_details', $pre_interview->id) }}">
-                    INTERVIEW NAME LIST
+                <a class="dropdown-item" href="{{ route('employer_interview_name_list_details', $pre_interview->id) }}">
+                    THAI / INTERVIEW NAME LIST
                 </a>
 
-                <form action="{{ route('pre_intervies.destroy', $pre_interview->id) }}" method="POST">
+                <form action="{{ route('employer_interview.destroy', $pre_interview->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="button" class="dropdown-item del_confirm" id="confirm-text" data-toggle="tooltip">

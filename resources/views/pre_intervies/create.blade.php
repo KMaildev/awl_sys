@@ -21,6 +21,11 @@
         </td>
 
         <td>
+            <input type="text" class="form-control form-control-sm @error('interview_title') is-invalid @enderror"
+                name="interview_title">
+        </td>
+
+        <td>
             <input type="text" class="form-control form-control-sm @error('interview_date') is-invalid @enderror"
                 name="interview_date">
         </td>

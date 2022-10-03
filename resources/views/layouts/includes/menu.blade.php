@@ -58,34 +58,40 @@
                    </ul>
                </li>
 
+               <li class="menu-item">
+                   <a href="{{ route('reject.index') }}" class="menu-link">
+                       Reject/Blacklist
+                   </a>
+               </li>
+
 
                <li class="menu-item">
-                   <a href="{{ route('home') }}" class="menu-link">
+                   <a href="#" class="menu-link">
                        Government Process
                    </a>
                </li>
 
                <li class="menu-item">
-                   <a href="{{ route('home') }}" class="menu-link">
+                   <a href="#" class="menu-link">
                        Contract
                    </a>
                </li>
 
                <li class="menu-item">
-                   <a href="{{ route('home') }}" class="menu-link">
+                   <a href="#" class="menu-link">
                        Government Process
                    </a>
                </li>
 
 
                <li class="menu-item">
-                   <a href="{{ route('home') }}" class="menu-link">
+                   <a href="#" class="menu-link">
                        Sending
                    </a>
                </li>
 
                <li class="menu-item">
-                   <a href="{{ route('home') }}" class="menu-link">
+                   <a href="{{ route('file_manager.index') }}" class="menu-link">
                        File Manager
                    </a>
                </li>

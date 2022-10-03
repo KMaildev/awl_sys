@@ -45,7 +45,7 @@ class UserController extends Controller
     {
         if ($request->hasFile('passport_photo')) {
             $passport_photo = $request->file('passport_photo');
-            $path = $passport_photo->store('public/passport');
+            $path = $passport_photo->store('public/images');
         }
 
         $employee = new User();
@@ -97,7 +97,7 @@ class UserController extends Controller
     {
         if ($request->hasFile('passport_photo')) {
             $passport_photo = $request->file('passport_photo');
-            $path = $passport_photo->store('public/passport');
+            $path = $passport_photo->store('public/images');
         }
 
         $employee = User::findOrFail($id);

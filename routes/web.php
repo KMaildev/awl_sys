@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InterviewNameListController;
 use App\Http\Controllers\OverseasAgentController;
 use App\Http\Controllers\PreInterviewController;
+use App\Http\Controllers\RejectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -34,4 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::get('update_name_list_employer_interview', [InterviewNameListController::class, 'updateNameListEmployerInterview'])->name('update_name_list_employer_interview');
 
     Route::resource('employer_interview', EmployerInterviewController::class);
+    Route::resource('reject', RejectController::class);
+
+    Route::view('/file_manager', 'file_manager.index')->name('file_manager.index');
 });

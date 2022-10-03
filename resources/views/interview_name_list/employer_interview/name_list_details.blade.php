@@ -34,6 +34,7 @@
 
                     <!-- Import Excel -->
                     <div class="tab-pane fade" id="form-tabs-account" role="tabpanel">
+                        @include('interview_name_list.shared.employer_interview_name_list')
                     </div>
                 </div>
             </div>

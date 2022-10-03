@@ -1,21 +1,26 @@
 <div style="text-align: center">
     <h4>
-        {{ strtoupper($pre_interview->overseas_agencie->employer_name ?? '') }}
+        {{ strtoupper($employer_interview->overseas_agencie->employer_name ?? '') }}
         &nbsp; INTERVIEW NAME LIST
-        ({{ $pre_interview->interview_date ?? '' }})
+        ({{ $employer_interview->interview_date ?? '' }})
     </h4>
 </div>
 
-<a href="{{ route('interview_name_list_export', $pre_interview->id) }}" class="text-success">
+<input type="text" placeholder="Search" id="mySearchInterview">
+<a href="{{ route('employer_interview_name_list_export', $employer_interview->id) }}" class="text-success">
     Excel Download
 </a>
 
 <div class="table-responsive text-nowrap">
-    <table class="table table-bordered table-sm">
+    <table class="table table-bordered table-sm" style="margin-bottom: 10px">
         <thead>
             <tr class="tbbg">
                 <th style="color: white; width: 1%;">
                     #
+                </th>
+
+                <th class="text-center cw">
+                    Pre Interview Title
                 </th>
 
                 <th class="text-center cw">
@@ -85,22 +90,24 @@
                 <th class="text-center cw">
                     Remark
                 </th>
-
-                <th class="text-center cw">
-                    Action
-                </th>
-
             </tr>
         </thead>
-        <tbody class="table-border-bottom-0">
-            @foreach ($name_lists as $name_list)
-                <tr style="background-color: {{ $name_list->bg_color ?? '' }}" data-bs-toggle="modal"
-                    data-bs-target="#nameListEdit_{{ $name_list->id }}">
+        <tbody class="table-border-bottom-0" id="searchInterviewTable">
+            @foreach ($interview_name_lists as $key => $name_list)
+                <tr style="background-color: {{ $name_list->bg_color ?? '' }}">
+
                     <td>
                         {{ $loop->iteration }}
                     </td>
 
                     <td>
+                        {{ $name_list->pre_interviews_table->interview_title ?? '' }}
+                        <span style="font-weight: bold">
+                            {{ $name_list->pre_interviews_table->interview_date ?? '' }}
+                        </span>
+                    </td>
+
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->name ?? '' }}
                     </td>
 
@@ -167,19 +174,23 @@
                     <td>
                         {{ $name_list->remark ?? '' }}
                     </td>
-
-                    <td class="text-center">
-                        <form action="{{ route('interview_name_list.destroy', $name_list->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <a class="text-danger del_confirm" id="confirm-text" data-toggle="tooltip">
-                                Delete
-                            </a>
-                        </form>
-                    </td>
                 </tr>
                 @include('interview_name_list.shared.name_list_edit')
             @endforeach
         </tbody>
     </table>
 </div>
+
+@section('script')
+    {!! JsValidator::formRequest('App\Http\Requests\StoreUser', '#create-form') !!}
+    <script>
+        $(document).ready(function() {
+            $("#mySearchInterview").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#searchInterviewTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+@endsection

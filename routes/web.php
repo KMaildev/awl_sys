@@ -26,8 +26,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('pre_intervies', PreInterviewController::class);
     Route::resource('interview_name_list', InterviewNameListController::class);
     Route::get('interview_name_list_details/{id}', [InterviewNameListController::class, 'interviewNameListDetails'])->name('interview_name_list_details');
-    Route::get('interview_name_list_import/{id}', [InterviewNameListController::class, 'interviewNameListImport'])->name('interview_name_list_import');
+    Route::get('interview_name_list_export/{id}', [InterviewNameListController::class, 'interviewNameListExport'])->name('interview_name_list_export');
+    Route::get('all_pre_interview_name_list_export/{id}', [InterviewNameListController::class, 'allPreInterviewNameListExport'])->name('all_pre_interview_name_list_export');
+    Route::get('employer_interview_name_list_export/{id}', [InterviewNameListController::class, 'employerInterviewNameListExport'])->name('employer_interview_name_list_export');
+
     Route::get('employer_interview_name_list_details/{id}', [InterviewNameListController::class, 'employerInterviewNameListDetails'])->name('employer_interview_name_list_details');
+    Route::get('update_name_list_employer_interview', [InterviewNameListController::class, 'updateNameListEmployerInterview'])->name('update_name_list_employer_interview');
 
     Route::resource('employer_interview', EmployerInterviewController::class);
 });

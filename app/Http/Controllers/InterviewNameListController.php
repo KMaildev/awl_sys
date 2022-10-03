@@ -132,11 +132,31 @@ class InterviewNameListController extends Controller
     /**
      * @return \Illuminate\Support\Collection
      */
-    public function interviewNameListImport($id = null)
+    public function interviewNameListExport($id = null)
     {
         $name_lists = NameList::where('pre_interview_id', $id)->get();
         return Excel::download(new NameListExport($name_lists), 'interview_name_list_' . date("Y-m-d H:i:s") . '.xlsx');
     }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function allPreInterviewNameListExport($id = null)
+    {
+        $name_lists = NameList::where('demand_id', $id)->get();
+        return Excel::download(new NameListExport($name_lists), 'interview_name_list_' . date("Y-m-d H:i:s") . '.xlsx');
+    }
+
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function employerInterviewNameListExport($id = null)
+    {
+        $name_lists = NameList::where('employer_interview_id', $id)->get();
+        return Excel::download(new NameListExport($name_lists), 'interview_name_list_' . date("Y-m-d H:i:s") . '.xlsx');
+    }
+
 
 
     /**
@@ -151,6 +171,24 @@ class InterviewNameListController extends Controller
 
         $demand_id = $employer_interview->demand_id;
         $name_lists = NameList::where('demand_id', $demand_id)->get();
-        return view('interview_name_list.employer_interview.name_list_details', compact('employer_interview', 'name_lists'));
+
+        $interview_name_lists = NameList::where('employer_interview_id', $id)->get();
+        return view('interview_name_list.employer_interview.name_list_details', compact('employer_interview', 'name_lists', 'interview_name_lists'));
+    }
+
+
+    public function updateNameListEmployerInterview(Request $request)
+    {
+        $employer_interview_id = $request->employer_interview_id;
+        if ($request->nameList) {
+            foreach ($request->nameList as $key => $value) {
+                $id = $value['name_list_id'];
+                $name_list = NameList::findOrFail($id);
+                $name_list->employer_interview_id = $employer_interview_id;
+                $name_list->update();
+            }
+            return redirect()->back()->with('success', 'Your processing has been completed.');
+        }
+        return redirect()->back()->with('error', 'Error.');
     }
 }

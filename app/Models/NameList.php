@@ -28,8 +28,10 @@ class NameList extends Model
         'passport_number',
 
         'remark',
-
-        'pre_interview_id',
+        'no',
+        'fail_cancel',
+        'interview_type',
+        'interview_id',
         'demand_id',
         'overseas_agencie_id',
 
@@ -41,6 +43,6 @@ class NameList extends Model
 
     public function pre_interviews_table()
     {
-        return $this->belongsTo(PreInterview::class, 'pre_interview_id', 'id');
+        return $this->belongsTo(PreInterview::class, 'interview_id', 'id');
     }
 }

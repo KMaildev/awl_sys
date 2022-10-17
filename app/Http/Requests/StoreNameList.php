@@ -24,7 +24,7 @@ class StoreNameList extends FormRequest
     public function rules()
     {
         return [
-            'pre_interview_id' => 'required',
+            'interview_id' => 'required',
             'demand_id' => 'required',
             'overseas_agencie_id' => 'required',
             'name_list_file' => 'required',

@@ -1,5 +1,7 @@
 <form action="{{ route('pre_intervies.store') }}" method="post" id="create-form" autocomplete="off">
     @csrf
+
+    <input type="hidden" value="pre_interview" name="interview_type">
     <tr>
         <td>
             #

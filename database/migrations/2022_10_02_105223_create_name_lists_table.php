@@ -15,7 +15,7 @@ class CreateNameListsTable extends Migration
     {
         Schema::create('name_lists', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pre_interview_id')->nullable();
+            $table->integer('interview_id')->nullable();
             $table->integer('demand_id')->nullable();
             $table->integer('overseas_agencie_id')->nullable();
 
@@ -41,6 +41,9 @@ class CreateNameListsTable extends Migration
             $table->text('issue_of_labour_date')->nullable();
 
             $table->text('join_date')->nullable();
+
+            $table->text('bg_color')->nullable();
+            $table->text('interview_type')->nullable();
             $table->timestamps();
         });
     }

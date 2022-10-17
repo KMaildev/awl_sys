@@ -44,22 +44,22 @@
                 <div class="tab-content">
                     {{-- Name List  --}}
                     <div class="tab-pane fade active show" id="form-tabs-personal" role="tabpanel">
-                        @include('interview_name_list.name_list')
+                        @include('employer_interview_name_list.name_list')
                     </div>
 
                     {{-- name-list-male --}}
                     <div class="tab-pane fade" id="name-list-male" role="tabpanel">
-                        @include('interview_name_list.male_name_list')
+                        @include('employer_interview_name_list.male_name_list')
                     </div>
 
                     {{-- name-list-female --}}
                     <div class="tab-pane fade" id="name-list-female" role="tabpanel">
-                        @include('interview_name_list.female_name_list')
+                        @include('employer_interview_name_list.female_name_list')
                     </div>
 
                     <!-- Import Excel -->
                     <div class="tab-pane fade" id="form-tabs-account" role="tabpanel">
-                        @include('interview_name_list.create')
+                        @include('employer_interview_name_list.create')
                     </div>
                 </div>
             </div>

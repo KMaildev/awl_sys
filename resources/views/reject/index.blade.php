@@ -102,81 +102,79 @@
                                 $i = 1;
                             @endphp
                             @foreach ($name_lists as $key => $name_list)
-                                @if ($name_list->medical_fail != '')
-                                    <tr>
-                                        <td>
-                                            {{ $i++ }}
-                                        </td>
+                                <tr>
+                                    <td>
+                                        {{ $i++ }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->name ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->name ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->gender ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->gender ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->nrc ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->nrc ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->father_name ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->father_name ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->mother_name ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->mother_name ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->qualification ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->qualification ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->date_of_birth ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->date_of_birth ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->native_town ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->native_town ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->region ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->region ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->come_from_to_interview ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->come_from_to_interview ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->expiry_date ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->expiry_date ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->slip_date ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->slip_date ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->passport_issue_date ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->passport_issue_date ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->medical_fail ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->medical_fail ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->phone_number ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->phone_number ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->passport_number ?? '' }}
-                                        </td>
+                                    <td>
+                                        {{ $name_list->passport_number ?? '' }}
+                                    </td>
 
-                                        <td>
-                                            {{ $name_list->remark ?? '' }}
-                                        </td>
-                                    </tr>
-                                @endif
+                                    <td>
+                                        {{ $name_list->remark ?? '' }}
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

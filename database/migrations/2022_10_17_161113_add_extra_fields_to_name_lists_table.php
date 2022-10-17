@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddEmployerInterviewIdToNameListsTable extends Migration
+class AddExtraFieldsToNameListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,8 @@ class AddEmployerInterviewIdToNameListsTable extends Migration
     public function up()
     {
         Schema::table('name_lists', function (Blueprint $table) {
-            $table->integer('employer_interview_id')->nullable();
+            $table->text('no')->nullable();
+            $table->text('fail_cancel')->nullable();
         });
     }
 

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\NameListExport;
+use App\Models\Interview;
 use App\Models\NameList;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
-class RejectController extends Controller
+class EmployerInterviewNameListController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,24 +17,7 @@ class RejectController extends Controller
      */
     public function index()
     {
-        // $name_lists = NameList::query();
-        $name_lists = NameList::where('remark', '!=', '')
-            ->where('interview_type', 'employer_interview');
-
-        if (request('search')) {
-            $name_lists->where('name', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('nrc', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('father_name', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('mother_name', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('qualification', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('native_town', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('region', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('expiry_date', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('phone_number', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('passport_number', 'Like', '%' . request('search') . '%');
-        }
-        $name_lists = $name_lists->orderBy('id', 'ASC')->get();
-        return view('reject.index', compact('name_lists'));
+        //
     }
 
     /**
@@ -98,5 +84,33 @@ class RejectController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function employerInterviewNameListDetails($id = null)
+    {
+        $pre_interview = Interview::findOrFail($id);
+        $name_lists = NameList::where('interview_id', $id)
+            ->where('medical_fail', '')
+            ->where('remark', '')
+            ->where('fail_cancel', '')
+            ->get();
+
+        $male_total = NameList::where('interview_id', $id)
+            ->where('gender', 'M')
+            ->count();
+
+        $female_total = NameList::where('interview_id', $id)
+            ->where('gender', 'F')
+            ->count();
+
+        return view('employer_interview_name_list.index', compact('pre_interview', 'name_lists', 'male_total', 'female_total'));
     }
 }

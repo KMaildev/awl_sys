@@ -8,7 +8,7 @@ use App\Models\Demand;
 use App\Models\Interview;
 use Illuminate\Http\Request;
 
-class PreInterviewController extends Controller
+class InterviewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,11 +21,10 @@ class PreInterviewController extends Controller
         $is_create = true;
 
         $search = request('search');
-        $pre_interviews = Interview::where('interview_type', 'pre_interview')
-            ->whereHas('overseas_agencie', function ($q) use ($search) {
-                $q->where('employer_name', 'LIKE', '%' . $search . '%');
-                $q->orWhere('type_of_company', 'LIKE', '%' . $search . '%');
-            })->get();
+        $pre_interviews = Interview::whereHas('overseas_agencie', function ($q) use ($search) {
+            $q->where('employer_name', 'LIKE', '%' . $search . '%');
+            $q->orWhere('type_of_company', 'LIKE', '%' . $search . '%');
+        })->get();
         return view('pre_intervies.index', compact('demands', 'pre_interviews', 'is_create'));
     }
 
@@ -58,7 +57,6 @@ class PreInterviewController extends Controller
         $pre_interview->interview_date = $request->interview_date;
         $pre_interview->male = $request->male;
         $pre_interview->female = $request->female;
-        $pre_interview->interview_type = $request->interview_type;
         $pre_interview->save();
         return redirect()->back()->with('success', 'Your processing has been completed.');
     }
@@ -86,11 +84,10 @@ class PreInterviewController extends Controller
         $is_create = false;
 
         $search = request('search');
-        $pre_interviews = Interview::where('interview_type', 'pre_interview')
-            ->whereHas('overseas_agencie', function ($q) use ($search) {
-                $q->where('employer_name', 'LIKE', '%' . $search . '%');
-                $q->orWhere('type_of_company', 'LIKE', '%' . $search . '%');
-            })->get();
+        $pre_interviews = Interview::whereHas('overseas_agencie', function ($q) use ($search) {
+            $q->where('employer_name', 'LIKE', '%' . $search . '%');
+            $q->orWhere('type_of_company', 'LIKE', '%' . $search . '%');
+        })->get();
 
         $pre_interview_edit = Interview::findOrFail($id);
         return view('pre_intervies.index', compact('demands', 'pre_interviews', 'is_create', 'pre_interview_edit'));

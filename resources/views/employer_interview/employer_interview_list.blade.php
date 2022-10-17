@@ -45,7 +45,7 @@
                     Edit
                 </a>
 
-                <a class="dropdown-item" href="{{ route('employer_interview_name_list_details', $pre_interview->id) }}">
+                <a class="dropdown-item" href="{{ route('all_employer_interview_name_list', $pre_interview->id) }}">
                     THAI / INTERVIEW NAME LIST
                 </a>
 

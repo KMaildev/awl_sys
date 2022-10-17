@@ -184,6 +184,17 @@
                             </div>
                         </div>
 
+
+                        <div class="mb-3 row">
+                            <label for="html5-text-input" class="col-md-2 col-form-label">
+                                Fail/Cancel
+                            </label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" value="{{ $name_list->fail_cancel ?? '' }}"
+                                    name="fail_cancel">
+                            </div>
+                        </div>
+
                         <div class="mb-3 row">
                             <label for="html5-text-input" class="col-md-2 col-form-label">
                                 Background Color

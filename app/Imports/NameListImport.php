@@ -8,11 +8,12 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class NameListImport implements ToModel,  WithHeadingRow
 {
-    public function __construct($pre_interview_id, $demand_id, $overseas_agencie_id)
+    public function __construct($interview_id, $demand_id, $overseas_agencie_id, $interview_type)
     {
-        $this->pre_interview_id = $pre_interview_id;
+        $this->interview_id = $interview_id;
         $this->demand_id = $demand_id;
         $this->overseas_agencie_id = $overseas_agencie_id;
+        $this->interview_type = $interview_type;
     }
 
     /**
@@ -23,6 +24,7 @@ class NameListImport implements ToModel,  WithHeadingRow
     public function model(array $row)
     {
         return new NameList([
+            'no' => strval($row['no']),
             'name' => strval($row['name']),
             'gender' => strval($row['gender']),
             'nrc' => strval($row['nrc']),
@@ -36,15 +38,18 @@ class NameListImport implements ToModel,  WithHeadingRow
             'expiry_date' => strval($row['expiry_date']),
             'slip_date' => strval($row['slip_date']),
             'passport_issue_date' => strval($row['passport_issue_date']),
-            'medical_fail' => strval($row['medical_fail']),
             'phone_number' => strval($row['phone_number']),
             'passport_number' => strval($row['passport_number']),
 
-            'remark' => strval($row['remark']),
+            'medical_fail' => strval($row['medical_fail'] ?? ''),
+            'fail_cancel' => strval($row['fail_or_cancel'] ?? ''),
+            
+            'remark' => strval($row['remark'] ?? ''),
 
-            'pre_interview_id' => $this->pre_interview_id,
+            'interview_id' => $this->interview_id,
             'demand_id' => $this->demand_id,
             'overseas_agencie_id' => $this->overseas_agencie_id,
+            'interview_type' => $this->interview_type,
 
             'join_date' => date('Y-m-d h:i:s'),
             'created_at'    => date('Y-m-d h:i:s'),

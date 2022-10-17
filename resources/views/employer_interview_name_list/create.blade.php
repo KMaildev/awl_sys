@@ -11,9 +11,7 @@
     <input type="hidden" value="{{ $pre_interview->id }}" name="interview_id">
     <input type="hidden" value="{{ $pre_interview->demand_id }}" name="demand_id">
     <input type="hidden" value="{{ $pre_interview->overseas_agencie_id }}" name="overseas_agencie_id">
-    <input type="hidden" value="pre_interview" name="interview_type">
-
-
+    <input type="hidden" value="employer_interview" name="interview_type">
 
     <div class="card-body">
         <p style="color: red">
@@ -24,7 +22,7 @@
             <input type="file" class="form-control" name="name_list_file" accept=".xlsx, .csv">
         </div>
         <br>
-        <a href="{{ asset('data/pre_interview_name_list.xlsx') }}" class="btn btn-primary text-white" download="">
+        <a href="{{ asset('data/thai_interview_name_list.xlsx') }}" class="btn btn-primary text-white" download="">
             <i class="fa fa-download"></i>
             Simple File Download
         </a>

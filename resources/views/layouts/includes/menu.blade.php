@@ -58,6 +58,33 @@
                    </ul>
                </li>
 
+
+               <li class="menu-item">
+                   <a href="javascript:void(0)" class="menu-link menu-toggle">
+                       Failed
+                   </a>
+                   <ul class="menu-sub">
+
+                       <li class="menu-item">
+                           <a href="#" class="menu-link">
+                               Pre
+                           </a>
+                       </li>
+
+                       <li class="menu-item">
+                           <a href="#" class="menu-link">
+                               Thai
+                           </a>
+                       </li>
+
+                       <li class="menu-item" hidden>
+                           <a href="#" class="menu-link">
+                               Passport
+                           </a>
+                       </li>
+                   </ul>
+               </li>
+
                <li class="menu-item">
                    <a href="{{ route('reject.index') }}" class="menu-link">
                        Reject/Blacklist

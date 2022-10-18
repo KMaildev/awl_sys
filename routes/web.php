@@ -4,6 +4,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DemandController;
 use App\Http\Controllers\EmployerInterviewController;
 use App\Http\Controllers\EmployerInterviewNameListController;
+use App\Http\Controllers\FailedController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InterviewNameListController;
 use App\Http\Controllers\OverseasAgentController;
@@ -27,7 +28,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('demand', DemandController::class);
     Route::resource('pre_intervies', PreInterviewController::class);
 
-
     Route::resource('interview_name_list', InterviewNameListController::class);
     Route::get('interview_name_list_details/{id}', [InterviewNameListController::class, 'interviewNameListDetails'])->name('interview_name_list_details');
     Route::get('interview_name_list_export/{id}', [InterviewNameListController::class, 'interviewNameListExport'])->name('interview_name_list_export');
@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('employer_interview_name_list', EmployerInterviewNameListController::class);
     Route::get('all_employer_interview_name_list/{id}', [EmployerInterviewNameListController::class, 'employerInterviewNameListDetails'])->name('all_employer_interview_name_list');
+
+    Route::resource('failed', FailedController::class);
+    Route::get('thai_failed_index', [FailedController::class, 'thaiFailedIndex'])->name('thai_failed_index');
 
 
 
@@ -46,7 +49,6 @@ Route::middleware('auth')->group(function () {
     Route::get('employer_interview_name_list_export/{id}', [InterviewNameListController::class, 'employerInterviewNameListExport'])->name('employer_interview_name_list_export');
     Route::get('employer_interview_name_list_details/{id}', [InterviewNameListController::class, 'employerInterviewNameListDetails'])->name('employer_interview_name_list_details');
     Route::get('update_name_list_employer_interview', [InterviewNameListController::class, 'updateNameListEmployerInterview'])->name('update_name_list_employer_interview');
-
 
 
 

@@ -66,13 +66,13 @@
                    <ul class="menu-sub">
 
                        <li class="menu-item">
-                           <a href="#" class="menu-link">
+                           <a href="{{ route('failed.index') }}" class="menu-link">
                                Pre
                            </a>
                        </li>
 
                        <li class="menu-item">
-                           <a href="#" class="menu-link">
+                           <a href="{{ route('thai_failed_index') }}" class="menu-link">
                                Thai
                            </a>
                        </li>

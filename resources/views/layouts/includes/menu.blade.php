@@ -93,8 +93,8 @@
 
 
                <li class="menu-item">
-                   <a href="#" class="menu-link">
-                       Government Process
+                   <a href="{{ route('government_process_contract.index') }}" class="menu-link">
+                       Government Process Contract
                    </a>
                </li>
 
@@ -105,8 +105,8 @@
                </li>
 
                <li class="menu-item">
-                   <a href="#" class="menu-link">
-                       Government Process
+                   <a href="{{ route('government_process_sending.index') }}" class="menu-link">
+                       Government Process Sending
                    </a>
                </li>
 

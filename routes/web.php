@@ -5,6 +5,8 @@ use App\Http\Controllers\DemandController;
 use App\Http\Controllers\EmployerInterviewController;
 use App\Http\Controllers\EmployerInterviewNameListController;
 use App\Http\Controllers\FailedController;
+use App\Http\Controllers\GovernmentProcessContractController;
+use App\Http\Controllers\GovernmentProcessSendingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InterviewNameListController;
 use App\Http\Controllers\OverseasAgentController;
@@ -38,7 +40,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('failed', FailedController::class);
     Route::get('thai_failed_index', [FailedController::class, 'thaiFailedIndex'])->name('thai_failed_index');
-
+    Route::resource('government_process_contract', GovernmentProcessContractController::class);
+    Route::resource('government_process_sending', GovernmentProcessSendingController::class);
 
 
 

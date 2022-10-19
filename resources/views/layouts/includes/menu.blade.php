@@ -28,6 +28,12 @@
                                Employer
                            </a>
                        </li>
+
+                       <li class="menu-item">
+                           <a href="{{ route('users.index') }}" class="menu-link">
+                               Users
+                           </a>
+                       </li>
                    </ul>
                </li>
 
@@ -77,18 +83,13 @@
                            </a>
                        </li>
 
-                       <li class="menu-item" hidden>
-                           <a href="#" class="menu-link">
-                               Passport
+                       <li class="menu-item">
+                           <a href="{{ route('reject.index') }}" class="menu-link">
+                               Reject/Blacklist
                            </a>
                        </li>
-                   </ul>
-               </li>
 
-               <li class="menu-item">
-                   <a href="{{ route('reject.index') }}" class="menu-link">
-                       Reject/Blacklist
-                   </a>
+                   </ul>
                </li>
 
 
@@ -99,7 +100,7 @@
                </li>
 
                <li class="menu-item">
-                   <a href="#" class="menu-link">
+                   <a href="{{ route('contract.index') }}" class="menu-link">
                        Contract
                    </a>
                </li>
@@ -123,11 +124,7 @@
                    </a>
                </li>
 
-               <li class="menu-item">
-                   <a href="{{ route('users.index') }}" class="menu-link">
-                       Users
-                   </a>
-               </li>
+
 
            </ul>
        </div>

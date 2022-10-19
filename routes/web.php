@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContractController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DemandController;
 use App\Http\Controllers\EmployerInterviewController;
@@ -41,9 +42,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('failed', FailedController::class);
     Route::get('thai_failed_index', [FailedController::class, 'thaiFailedIndex'])->name('thai_failed_index');
     Route::resource('government_process_contract', GovernmentProcessContractController::class);
+    Route::resource('contract', ContractController::class);
+
+
     Route::resource('government_process_sending', GovernmentProcessSendingController::class);
-
-
 
 
 

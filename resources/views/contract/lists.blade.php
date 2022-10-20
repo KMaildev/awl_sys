@@ -50,10 +50,10 @@
                 </a>
 
                 <a class="dropdown-item" href="{{ route('interview_name_list_details', $contract->id) }}">
-                    INTERVIEW NAME LIST
+                    Contract Name List
                 </a>
 
-                <form action="{{ route('contract.destroy', $contract->id) }}" method="POST">
+                <form action="{{ route('contract.destroy', $contract->id) }}" method="POST" hidden>
                     @csrf
                     @method('DELETE')
                     <button type="button" class="dropdown-item del_confirm" id="confirm-text" data-toggle="tooltip">

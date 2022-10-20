@@ -55,6 +55,17 @@
                 }
             });
     });
+
+
+    // Js Search 
+    $(document).ready(function() {
+        $("#nameListSearch").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#nameListTable tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
 </script>
 @yield('script')
 </body>

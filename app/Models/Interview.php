@@ -13,4 +13,9 @@ class Interview extends Model
     {
         return $this->belongsTo(OverseasAgency::class, 'overseas_agencie_id', 'id');
     }
+
+    public function name_lists()
+    {
+        return $this->hasMany(NameList::class, 'interview_id', 'id');
+    }
 }

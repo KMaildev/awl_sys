@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contract;
 use App\Models\Interview;
+use App\Models\NameList;
 use Illuminate\Http\Request;
 
 class ContractNameListController extends Controller
@@ -47,12 +48,17 @@ class ContractNameListController extends Controller
      */
     public function show($id)
     {
-        $interviews = Interview::where('demand_id', $id)
+        $contract = Contract::findOrFail($id);
+        $demand_id = $contract->demand_id;
+
+        $interviews = Interview::where('demand_id', $demand_id)
             ->where('interview_type', 'employer_interview')
             ->get();
 
-        $contract = Contract::findOrFail($id);
-        return view('contract_name_list.show', compact('interviews', 'contract'));
+        $contract_name_lists = NameList::where('contract_id', $id)
+            ->get();
+
+        return view('contract_name_list.show', compact('interviews', 'contract', 'contract_name_lists'));
     }
 
     /**
@@ -75,7 +81,19 @@ class ContractNameListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $contract_id = $id;
+        if ($request->nameList) {
+            foreach ($request->nameList as $key => $value) {
+                $id = $value['name_list_id'];
+                $name_list = NameList::findOrFail($id);
+                $name_list->contract_id = $contract_id;
+                $name_list->contract_submit_date = date("Y-m-d H:i:s");
+                $name_list->contract_user_id = auth()->user()->id;
+                $name_list->update();
+            }
+            return redirect()->back()->with('success', 'Your processing has been completed.');
+        }
+        return redirect()->back()->with('error', 'Error.');
     }
 
     /**

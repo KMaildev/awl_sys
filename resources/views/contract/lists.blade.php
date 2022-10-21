@@ -49,7 +49,7 @@
                     Edit
                 </a>
 
-                <a class="dropdown-item" href="{{ route('contract_name_list.show', $contract->demand_id) }}">
+                <a class="dropdown-item" href="{{ route('contract_name_list.show', $contract->id) }}">
                     Contract Name List
                 </a>
 

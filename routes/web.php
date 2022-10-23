@@ -14,6 +14,7 @@ use App\Http\Controllers\InterviewNameListController;
 use App\Http\Controllers\OverseasAgentController;
 use App\Http\Controllers\PreInterviewController;
 use App\Http\Controllers\RejectController;
+use App\Http\Controllers\SendingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,8 +46,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('government_process_contract', GovernmentProcessContractController::class);
     Route::resource('contract', ContractController::class);
     Route::resource('contract_name_list', ContractNameListController::class);
+    Route::get('contract_data_ajax/{id}', [ContractNameListController::class, 'contractDataAjax'])->name('contract_data_ajax');
 
     Route::resource('government_process_sending', GovernmentProcessSendingController::class);
+
+    Route::resource('sending', SendingController::class);
 
 
 
@@ -55,7 +59,6 @@ Route::middleware('auth')->group(function () {
     Route::get('employer_interview_name_list_export/{id}', [InterviewNameListController::class, 'employerInterviewNameListExport'])->name('employer_interview_name_list_export');
     Route::get('employer_interview_name_list_details/{id}', [InterviewNameListController::class, 'employerInterviewNameListDetails'])->name('employer_interview_name_list_details');
     Route::get('update_name_list_employer_interview', [InterviewNameListController::class, 'updateNameListEmployerInterview'])->name('update_name_list_employer_interview');
-
 
 
     Route::resource('employer_interview', EmployerInterviewController::class);

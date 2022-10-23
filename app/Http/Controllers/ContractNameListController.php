@@ -106,4 +106,10 @@ class ContractNameListController extends Controller
     {
         //
     }
+
+    public function contractDataAjax($id = null)
+    {
+        $contract_data = Contract::findOrFail($id);
+        return json_encode($contract_data);
+    }
 }

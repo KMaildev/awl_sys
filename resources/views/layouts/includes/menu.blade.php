@@ -113,7 +113,7 @@
 
 
             <li class="menu-item">
-                <a href="#" class="menu-link">
+                <a href="{{ route('sending.index') }}" class="menu-link">
                     Sending
                 </a>
             </li>

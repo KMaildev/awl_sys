@@ -34,7 +34,7 @@
                     </div>
 
                     {{-- Contract Name List  --}}
-                    <div class="tab-pane fade active show" id="contract-name-list" role="tabpanel">
+                    <div class="tab-pane fade" id="contract-name-list" role="tabpanel">
                         @include('contract_name_list.contract_name_list')
                     </div>
                 </div>

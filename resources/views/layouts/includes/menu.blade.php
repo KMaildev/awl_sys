@@ -30,6 +30,12 @@
                     </li>
 
                     <li class="menu-item">
+                        <a href="{{ route('file_manager.index') }}" class="menu-link">
+                            File Manager
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
                         <a href="{{ route('users.index') }}" class="menu-link">
                             Users
                         </a>
@@ -119,11 +125,10 @@
             </li>
 
             <li class="menu-item">
-                <a href="{{ route('file_manager.index') }}" class="menu-link">
-                    File Manager
+                <a href="{{ route('search_name_list.index') }}" class="menu-link">
+                    Search
                 </a>
             </li>
-
 
 
         </ul>

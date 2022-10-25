@@ -15,6 +15,8 @@ use App\Http\Controllers\NameListController;
 use App\Http\Controllers\OverseasAgentController;
 use App\Http\Controllers\PreInterviewController;
 use App\Http\Controllers\RejectController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SearchNameListController;
 use App\Http\Controllers\SendingController;
 use App\Http\Controllers\SendingNameListController;
 use App\Http\Controllers\UserController;
@@ -54,6 +56,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('sending', SendingController::class);
     Route::resource('sending_name_list', SendingNameListController::class);
+    Route::resource('search_name_list', SearchNameListController::class);
 
 
 

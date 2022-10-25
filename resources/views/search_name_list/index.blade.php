@@ -7,11 +7,11 @@
                 <div class="card-body">
                     <div class="card-title header-elements">
                         <h5 class="m-0 me-2">
-                            Pre Failed
+                            Users
                         </h5>
                         <div class="card-title-elements ms-auto">
                             <div class="card-header-elements ms-auto">
-                                <form action="{{ route('failed.index') }}" method="GET" autocomplete="off">
+                                <form action="{{ route('search_name_list.index') }}" method="GET" autocomplete="off">
                                     <input type="text" class="form-control form-control-sm" placeholder="Search"
                                         name="search">
                                 </form>
@@ -26,10 +26,6 @@
                             <tr class="tbbg">
                                 <th style="color: white; width: 1%;">
                                     #
-                                </th>
-
-                                <th style="color: white; width: 1%;">
-                                    No
                                 </th>
 
                                 <th class="text-center cw">
@@ -85,7 +81,7 @@
                                 </th>
 
                                 <th class="text-center cw">
-                                    Fail/Cancel
+                                    Medical fail X-ray(or)Hep-B
                                 </th>
 
                                 <th class="text-center cw">
@@ -97,12 +93,22 @@
                                 </th>
 
                                 <th class="text-center cw">
+                                    Pre Interview
+                                </th>
+
+                                <th class="text-center cw">
+                                    Thai Interview
+                                </th>
+
+                                <th class="text-center cw">
                                     Remark
                                 </th>
 
                                 <th class="text-center cw">
                                     Note
                                 </th>
+
+                                
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -113,10 +119,6 @@
                                 <tr>
                                     <td>
                                         {{ $i++ }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->no ?? '' }}
                                     </td>
 
                                     <td>
@@ -172,7 +174,7 @@
                                     </td>
 
                                     <td>
-                                        {{ $name_list->fail_cancel ?? '' }}
+                                        @include('component.medical_fail')
                                     </td>
 
                                     <td>
@@ -190,7 +192,6 @@
                                     <td>
                                         @include('component.note')
                                     </td>
-
                                 </tr>
                             @endforeach
                         </tbody>

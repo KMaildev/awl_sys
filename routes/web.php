@@ -11,6 +11,7 @@ use App\Http\Controllers\GovernmentProcessContractController;
 use App\Http\Controllers\GovernmentProcessSendingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InterviewNameListController;
+use App\Http\Controllers\NameListController;
 use App\Http\Controllers\OverseasAgentController;
 use App\Http\Controllers\PreInterviewController;
 use App\Http\Controllers\RejectController;
@@ -55,6 +56,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('sending_name_list', SendingNameListController::class);
 
 
+
+
+    Route::get('update_remark', [NameListController::class, 'updateRemark'])->name('update_remark');
+    Route::get('update_note', [NameListController::class, 'updateNote'])->name('update_note');
+    Route::get('update_cancel', [NameListController::class, 'updateFailCancel'])->name('update_cancel');
+    Route::get('update_medical_fail', [NameListController::class, 'updateMedicalFail'])->name('update_medical_fail');
 
 
     // No Using 

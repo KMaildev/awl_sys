@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NameList;
 use Illuminate\Http\Request;
 
-class RejectController extends Controller
+class NameListController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,24 +14,7 @@ class RejectController extends Controller
      */
     public function index()
     {
-        // $name_lists = NameList::query();
-        // ->where('interview_type', 'employer_interview')
-        $name_lists = NameList::where('remark', '!=', '');
-
-        if (request('search')) {
-            $name_lists->where('name', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('nrc', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('father_name', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('mother_name', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('qualification', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('native_town', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('region', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('expiry_date', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('phone_number', 'Like', '%' . request('search') . '%');
-            $name_lists->orWhere('passport_number', 'Like', '%' . request('search') . '%');
-        }
-        $name_lists = $name_lists->orderBy('id', 'ASC')->get();
-        return view('reject.index', compact('name_lists'));
+        //
     }
 
     /**
@@ -98,5 +81,60 @@ class RejectController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function updateRemark(Request $request)
+    {
+        $id = $request->id;
+        $value = $request->value;
+
+        $temp = NameList::findOrFail($id);
+        $temp->remark = $value;
+        $temp->update();
+        return json_encode(array(
+            "statusCode" => 200,
+        ));
+    }
+
+
+    public function updateNote(Request $request)
+    {
+        $id = $request->id;
+        $value = $request->value;
+
+        $temp = NameList::findOrFail($id);
+        $temp->note = $value;
+        $temp->update();
+        return json_encode(array(
+            "statusCode" => 200,
+        ));
+    }
+
+    public function updateFailCancel(Request $request)
+    {
+        $id = $request->id;
+        $value = $request->value;
+
+        $temp = NameList::findOrFail($id);
+        $temp->fail_cancel = $value;
+        $temp->update();
+        return json_encode(array(
+            "statusCode" => 200,
+        ));
+    }
+
+
+    public function updateMedicalFail(Request $request)
+    {
+        $id = $request->id;
+        $value = $request->value;
+
+        $temp = NameList::findOrFail($id);
+        $temp->medical_fail = $value;
+        $temp->update();
+        return json_encode(array(
+            "statusCode" => 200,
+        ));
     }
 }

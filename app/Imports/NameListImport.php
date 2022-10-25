@@ -45,7 +45,9 @@ class NameListImport implements ToModel,  WithHeadingRow
             'medical_fail' => strval($row['medical_fail'] ?? ''),
             'fail_cancel' => strval($row['fail_or_cancel'] ?? ''),
 
+
             'remark' => strval($row['remark'] ?? ''),
+            'note' => strval($row['note'] ?? ''),
 
             'interview_id' => $this->interview_id,
             'demand_id' => $this->demand_id,

@@ -96,6 +96,10 @@
                 </th>
 
                 <th class="text-center cw">
+                    Note
+                </th>
+
+                <th class="text-center cw">
                     Action
                 </th>
 
@@ -103,33 +107,33 @@
         </thead>
         <tbody class="table-border-bottom-0">
             @foreach ($name_lists as $name_list)
-                <tr style="background-color: {{ $name_list->bg_color ?? '' }}" data-bs-toggle="modal"
-                    data-bs-target="#nameListEdit_{{ $name_list->id }}">
-                    <td>
+                <tr style="background-color: {{ $name_list->bg_color ?? '' }}">
+
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $loop->iteration }}
                     </td>
 
-                    <td>
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->no ?? '' }}
                     </td>
 
-                    <td>
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->name ?? '' }}
                     </td>
 
-                    <td>
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->gender ?? '' }}
                     </td>
 
-                    <td>
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->nrc ?? '' }}
                     </td>
 
-                    <td>
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->father_name ?? '' }}
                     </td>
 
-                    <td>
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->mother_name ?? '' }}
                     </td>
 
@@ -174,7 +178,13 @@
                     </td>
 
                     <td>
-                        {{ $name_list->remark ?? '' }}
+                        <input type="text" value="{{ $name_list->remark ?? '' }}" data-id="{{ $name_list->id }}"
+                            class="updateRemark" style="width: 140px;">
+                    </td>
+
+                    <td>
+                        <input type="text" value="{{ $name_list->note ?? '' }}" data-id="{{ $name_list->id }}"
+                            class="updateNote" style="width: 140px;">
                     </td>
 
                     <td class="text-center">

@@ -81,6 +81,10 @@
                 <th class="text-center cw">
                     Remark
                 </th>
+
+                <th class="text-center cw">
+                    Note
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -88,79 +92,85 @@
                 $loop_index = 1;
             @endphp
             @foreach ($sending_name_lists as $key => $name_list)
-                <tr>
-                    <td>
-                        {{ $loop_index++ }}
-                    </td>
+                @if ($name_list->medical_fail == '' and $name_list->remark == '' and $name_list->fail_cancel == '')
+                    <tr>
+                        <td>
+                            {{ $loop_index++ }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->no ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->no ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->name ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->name ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->gender ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->gender ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->nrc ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->nrc ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->father_name ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->father_name ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->mother_name ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->mother_name ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->qualification ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->qualification ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->date_of_birth ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->date_of_birth ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->native_town ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->native_town ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->region ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->region ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->come_from_to_interview ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->come_from_to_interview ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->expiry_date ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->expiry_date ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->slip_date ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->slip_date ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->passport_issue_date ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->passport_issue_date ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->phone_number ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->phone_number ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->passport_number ?? '' }}
-                    </td>
+                        <td>
+                            {{ $name_list->passport_number ?? '' }}
+                        </td>
 
-                    <td>
-                        {{ $name_list->remark ?? '' }}
-                    </td>
-                </tr>
+                        <td>
+                            @include('component.remark')
+                        </td>
+
+                        <td>
+                            @include('component.note')
+                        </td>
+                    </tr>
+                @endif
             @endforeach
         </tbody>
     </table>

@@ -81,6 +81,10 @@
                 <th class="text-center cw">
                     Remark
                 </th>
+
+                <th class="text-center cw">
+                    Note
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -158,7 +162,11 @@
                     </td>
 
                     <td>
-                        {{ $name_list->remark ?? '' }}
+                        @include('component.remark')
+                    </td>
+
+                    <td>
+                        @include('component.note')
                     </td>
                 </tr>
             @endforeach

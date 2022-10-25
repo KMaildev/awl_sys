@@ -76,6 +76,115 @@
             });
         });
     });
+
+
+    $(document).on("keyup", ".updateRemark", function() {
+        var id = $(this).data('id');
+        var value = $(this).val();
+
+        var url = '{{ url('update_remark') }}';
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            method: 'GET',
+            url: url,
+            data: {
+                id: id,
+                value: value,
+            },
+            success: function(data) {
+                console.log(data)
+            },
+            error: function(data) {
+                console.log(data)
+            }
+        });
+    });
+
+
+
+    $(document).on("keyup", ".updateNote", function() {
+        var id = $(this).data('id');
+        var value = $(this).val();
+
+        var url = '{{ url('update_note') }}';
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            method: 'GET',
+            url: url,
+            data: {
+                id: id,
+                value: value,
+            },
+            success: function(data) {
+                console.log(data)
+            },
+            error: function(data) {
+                console.log(data)
+            }
+        });
+    });
+
+
+    $(document).on("keyup", ".updateCancel", function() {
+        var id = $(this).data('id');
+        var value = $(this).val();
+
+        var url = '{{ url('update_cancel') }}';
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            method: 'GET',
+            url: url,
+            data: {
+                id: id,
+                value: value,
+            },
+            success: function(data) {
+                console.log(data)
+            },
+            error: function(data) {
+                console.log(data)
+            }
+        });
+    });
+
+
+    $(document).on("keyup", ".updateMedicalFail", function() {
+        var id = $(this).data('id');
+        var value = $(this).val();
+
+        var url = '{{ url('update_medical_fail') }}';
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            method: 'GET',
+            url: url,
+            data: {
+                id: id,
+                value: value,
+            },
+            success: function(data) {
+                console.log(data)
+            },
+            error: function(data) {
+                console.log(data)
+            }
+        });
+    });
 </script>
 @yield('script')
 </body>

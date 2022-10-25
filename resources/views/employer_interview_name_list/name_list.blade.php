@@ -92,7 +92,15 @@
                 </th>
 
                 <th class="text-center cw">
+                    MEDICAL FAIL X-RAY(OR)HEP-B
+                </th>
+
+                <th class="text-center cw">
                     Remark
+                </th>
+
+                <th class="text-center cw">
+                    Note
                 </th>
 
                 <th class="text-center cw">
@@ -103,29 +111,29 @@
         </thead>
         <tbody class="table-border-bottom-0">
             @foreach ($name_lists as $name_list)
-                <tr style="background-color: {{ $name_list->bg_color ?? '' }}" data-bs-toggle="modal"
-                    data-bs-target="#nameListEdit_{{ $name_list->id }}">
-                    <td>
+                <tr style="background-color: {{ $name_list->bg_color ?? '' }}">
+
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $loop->iteration }}
                     </td>
 
-                    <td>
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->no ?? '' }}
                     </td>
 
-                    <td>
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->name ?? '' }}
                     </td>
 
-                    <td>
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->gender ?? '' }}
                     </td>
 
-                    <td>
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->nrc ?? '' }}
                     </td>
 
-                    <td>
+                    <td data-bs-toggle="modal" data-bs-target="#nameListEdit_{{ $name_list->id }}">
                         {{ $name_list->father_name ?? '' }}
                     </td>
 
@@ -174,7 +182,15 @@
                     </td>
 
                     <td>
-                        {{ $name_list->remark ?? '' }}
+                        @include('component.medical_fail')
+                    </td>
+
+                    <td>
+                        @include('component.remark')
+                    </td>
+
+                    <td>
+                        @include('component.note')
                     </td>
 
                     <td class="text-center">

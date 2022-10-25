@@ -38,8 +38,7 @@ class FailedController extends Controller
 
     public function thaiFailedIndex()
     {
-        $name_lists = NameList::where('fail_cancel', '!=', '')
-            ->where('medical_fail', '!=', 'employer_interview')
+        $name_lists = NameList::where('medical_fail', '!=', '')
             ->where('interview_type', 'employer_interview');
 
         if (request('search')) {

@@ -51,8 +51,8 @@
                     Edit
                 </a>
 
-                <a class="dropdown-item" href="{{ route('contract_name_list.show', $sending->id) }}">
-                    Contract Name List
+                <a class="dropdown-item" href="{{ route('sending_name_list.show', $sending->id) }}">
+                    Sending Name List
                 </a>
 
                 <form action="{{ route('sending.destroy', $sending->id) }}" method="POST" hidden>

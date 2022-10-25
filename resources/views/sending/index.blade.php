@@ -78,14 +78,14 @@
 
                             <td class="right">
                                 @php
-                                    $male = $contracts->sum('male');
+                                    $male = $sendings->sum('male');
                                     echo number_format($male);
                                 @endphp
                             </td>
 
                             <td class="right">
                                 @php
-                                    $female = $contracts->sum('female');
+                                    $female = $sendings->sum('female');
                                     echo number_format($female);
                                 @endphp
                             </td>

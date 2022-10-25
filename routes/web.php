@@ -15,6 +15,7 @@ use App\Http\Controllers\OverseasAgentController;
 use App\Http\Controllers\PreInterviewController;
 use App\Http\Controllers\RejectController;
 use App\Http\Controllers\SendingController;
+use App\Http\Controllers\SendingNameListController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('government_process_sending', GovernmentProcessSendingController::class);
 
     Route::resource('sending', SendingController::class);
+    Route::resource('sending_name_list', SendingNameListController::class);
+
 
 
 

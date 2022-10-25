@@ -13,4 +13,10 @@ class Contract extends Model
     {
         return $this->belongsTo(OverseasAgency::class, 'overseas_agencie_id', 'id');
     }
+
+
+    public function name_lists_table()
+    {
+        return $this->hasMany(NameList::class, 'contract_id', 'id');
+    }
 }

@@ -93,11 +93,15 @@
                                 </th>
 
                                 <th class="text-center cw">
-                                    Pre Interview
+                                    Interview
                                 </th>
 
                                 <th class="text-center cw">
-                                    Thai Interview
+                                    Contract
+                                </th>
+
+                                <th class="text-center cw">
+                                    Sending
                                 </th>
 
                                 <th class="text-center cw">
@@ -107,8 +111,6 @@
                                 <th class="text-center cw">
                                     Note
                                 </th>
-
-                                
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -183,6 +185,34 @@
 
                                     <td>
                                         {{ $name_list->passport_number ?? '' }}
+                                    </td>
+
+                                    {{-- PRE INTERVIEW --}}
+                                    <td>
+                                        {{ $name_list->interviews_table->interview_date ?? '' }}
+                                        @if ($name_list->interviews_table->interview_date ?? '')
+                                            @
+                                        @endif
+                                        {{ $name_list->interviews_table->interview_title ?? '' }}
+                                    </td>
+
+                                    {{-- CONTRACT --}}
+                                    <td>
+                                        {{ $name_list->contracts_table->overseas_agencie->employer_name ?? '' }}
+                                        @if ($name_list->contracts_table->overseas_agencie->employer_name ?? '')
+                                            @
+                                        @endif
+                                        {{ $name_list->contracts_table->contract_date ?? '' }}
+                                    </td>
+
+
+                                    {{-- Sending --}}
+                                    <td>
+                                        {{ $name_list->sendings_table->overseas_agencie->employer_name ?? '' }}
+                                        @if ($name_list->sendings_table->overseas_agencie->employer_name ?? '')
+                                            @
+                                        @endif
+                                        {{ $name_list->sendings_table->sending_date ?? '' }}
                                     </td>
 
                                     <td>

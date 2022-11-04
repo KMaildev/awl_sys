@@ -45,4 +45,21 @@ class NameList extends Model
     {
         return $this->belongsTo(PreInterview::class, 'interview_id', 'id');
     }
+
+    public function interviews_table()
+    {
+        return $this->belongsTo(Interview::class, 'interview_id', 'id');
+    }
+
+
+    public function contracts_table()
+    {
+        return $this->belongsTo(Contract::class, 'contract_id', 'id');
+    }
+
+
+    public function sendings_table()
+    {
+        return $this->belongsTo(Sending::class, 'sending_id', 'id');
+    }
 }

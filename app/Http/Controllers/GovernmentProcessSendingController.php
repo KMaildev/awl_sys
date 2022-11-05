@@ -60,9 +60,16 @@ class GovernmentProcessSendingController extends Controller
         $gov_process = new GovernmentProcessSending();
         $gov_process->demand_id = $request->demand_id;
         $gov_process->overseas_agencie_id = $overseas_agencie_id;
-        $gov_process->thai_date = $request->thai_date;
-        $gov_process->cabinet_date = $request->cabinet_date;
-        $gov_process->issue_date = $request->issue_date;
+        $gov_process->thai_date = $request->thai_date ?? '';
+        $gov_process->cabinet_date = $request->cabinet_date ?? '';
+        $gov_process->issue_date = $request->issue_date ?? '';
+
+        $gov_process->ygn_to_myawaddy = $request->ygn_to_myawaddy ?? '';
+        $gov_process->myawaddy_to_thai = $request->myawaddy_to_thai ?? '';
+        $gov_process->male = $request->male ?? '';
+        $gov_process->female = $request->female ?? '';
+
+
         $gov_process->file_name = $file_name ?? '';
         $gov_process->file_path = $file_path ?? '';
         $gov_process->user_id = auth()->user()->id;
@@ -119,9 +126,16 @@ class GovernmentProcessSendingController extends Controller
         $gov_process = GovernmentProcessSending::findOrFail($id);
         $gov_process->demand_id = $request->demand_id;
         $gov_process->overseas_agencie_id = $overseas_agencie_id;
-        $gov_process->thai_date = $request->thai_date;
-        $gov_process->cabinet_date = $request->cabinet_date;
-        $gov_process->issue_date = $request->issue_date;
+        $gov_process->thai_date = $request->thai_date ?? '';
+        $gov_process->cabinet_date = $request->cabinet_date ?? '';
+        $gov_process->issue_date = $request->issue_date ?? '';
+
+
+        $gov_process->ygn_to_myawaddy = $request->ygn_to_myawaddy ?? '';
+        $gov_process->myawaddy_to_thai = $request->myawaddy_to_thai ?? '';
+        $gov_process->male = $request->male ?? '';
+        $gov_process->female = $request->female ?? '';
+
         $gov_process->file_name = $file_name ?? $gov_process->file_name;
         $gov_process->file_path = $file_path ?? $gov_process->file_path;
         $gov_process->user_id = auth()->user()->id;

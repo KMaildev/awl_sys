@@ -65,6 +65,10 @@ class GovernmentProcessContractController extends Controller
         $gov_process->issue_date = $request->issue_date;
         $gov_process->file_name = $file_name ?? '';
         $gov_process->file_path = $file_path ?? '';
+
+        $gov_process->male = $request->male;
+        $gov_process->female = $request->female;
+
         $gov_process->user_id = auth()->user()->id;
         $gov_process->save();
         return redirect()->back()->with('success', 'Your processing has been completed.');
@@ -125,6 +129,10 @@ class GovernmentProcessContractController extends Controller
         $gov_process->file_name = $file_name ?? $gov_process->file_name;
         $gov_process->file_path = $file_path ?? $gov_process->file_path;
         $gov_process->user_id = auth()->user()->id;
+
+        $gov_process->male = $request->male;
+        $gov_process->female = $request->female;
+
         $gov_process->update();
         return redirect()->route('government_process_contract.index')->with('success', 'Your processing has been completed.');
     }

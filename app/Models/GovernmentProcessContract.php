@@ -13,4 +13,9 @@ class GovernmentProcessContract extends Model
     {
         return $this->belongsTo(OverseasAgency::class, 'overseas_agencie_id', 'id');
     }
+
+    public function demand_table()
+    {
+        return $this->belongsTo(Demand::class, 'demand_id', 'id');
+    }
 }

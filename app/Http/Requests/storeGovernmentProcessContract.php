@@ -25,6 +25,8 @@ class storeGovernmentProcessContract extends FormRequest
     {
         return [
             'demand_id' => 'required',
+            'male' => 'numeric',
+            'female' => 'numeric',
         ];
     }
 }

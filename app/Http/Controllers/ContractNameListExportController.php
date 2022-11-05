@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Exports\NameListExport;
-use App\Models\Interview;
 use App\Models\NameList;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
-class EmployerInterviewNameListController extends Controller
+class ContractNameListExportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -89,28 +88,11 @@ class EmployerInterviewNameListController extends Controller
 
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Support\Collection
      */
-    public function employerInterviewNameListDetails($id = null)
+    public function contractNameListExport($id = null)
     {
-        $pre_interview = Interview::findOrFail($id);
-        $name_lists = NameList::where('interview_id', $id)
-            // ->where('medical_fail', '')
-            // ->where('remark', '')
-            // ->where('fail_cancel', '')
-            ->get();
-
-        $male_total = NameList::where('interview_id', $id)
-            ->where('gender', 'M')
-            ->count();
-
-        $female_total = NameList::where('interview_id', $id)
-            ->where('gender', 'F')
-            ->count();
-
-        return view('employer_interview_name_list.index', compact('pre_interview', 'name_lists', 'male_total', 'female_total'));
+        $name_lists = NameList::where('contract_id', $id)->get();
+        return Excel::download(new NameListExport($name_lists), 'contract_name_list_' . date("Y-m-d H:i:s") . '.xlsx');
     }
 }

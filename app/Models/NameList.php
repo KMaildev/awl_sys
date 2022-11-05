@@ -26,7 +26,7 @@ class NameList extends Model
         'medical_fail',
         'phone_number',
         'passport_number',
-
+        'age',
         'remark',
         'no',
         'fail_cancel',
@@ -34,7 +34,10 @@ class NameList extends Model
         'interview_id',
         'demand_id',
         'overseas_agencie_id',
-
+        'physical_and_blindness_test',
+        'covid_vaccine_first_dose',
+        'covid_vaccine_second_dose',
+        'contract_no',
         'bg_color',
         'join_date',
         'created_at',

@@ -130,9 +130,9 @@ class InterviewNameListController extends Controller
     {
         $pre_interview = Interview::findOrFail($id);
         $name_lists = NameList::where('interview_id', $id)
-            ->where('medical_fail', '')
-            ->where('remark', '')
-            ->where('fail_cancel', '')
+            // ->where('medical_fail', '')
+            // ->where('remark', '')
+            // ->where('fail_cancel', '')
             ->get();
 
         $male_total = NameList::where('interview_id', $id)

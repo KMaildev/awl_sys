@@ -46,11 +46,25 @@ class DemandController extends Controller
      */
     public function store(StoreDemand $request)
     {
+
+        if ($request->hasFile('files')) {
+            $files = $request->file('files');
+            $file_name = $files->getClientOriginalName();
+            $file_path = $files->store('public/files');
+        }
+
         $demand = new Demand();
         $demand->overseas_agencie_id = $request->overseas_agencie_id;
         $demand->demand_date = $request->demand_date;
+        $demand->demand_number = $request->demand_number;
         $demand->male = $request->male;
         $demand->female = $request->female;
+
+        $demand->approval_number = $request->approval_number;
+        $demand->approval_date = $request->approval_date;
+        $demand->file_name = $file_name ?? '';
+        $demand->file = $file_path ?? '';
+
         $demand->save();
         return redirect()->back()->with('success', 'Your processing has been completed.');
     }
@@ -97,11 +111,25 @@ class DemandController extends Controller
      */
     public function update(UpdateDemand $request, $id)
     {
+        if ($request->hasFile('files')) {
+            $files = $request->file('files');
+            $file_name = $files->getClientOriginalName();
+            $file_path = $files->store('public/files');
+        }
+
+
         $demand = Demand::findOrFail($id);
         $demand->overseas_agencie_id = $request->overseas_agencie_id;
         $demand->demand_date = $request->demand_date;
+        $demand->demand_number = $request->demand_number;
         $demand->male = $request->male;
         $demand->female = $request->female;
+
+        $demand->approval_number = $request->approval_number;
+        $demand->approval_date = $request->approval_date;
+        $demand->file_name = $file_name ?? $demand->file_name;
+        $demand->file = $file_path ?? $demand->file;
+
         $demand->update();
         return redirect()->route('demand.index')->with('success', 'Your processing has been completed.');
     }
@@ -117,5 +145,14 @@ class DemandController extends Controller
         $passport = Demand::findOrFail($id);
         $passport->delete();
         return redirect()->route('demand.index')->with('success', 'Your processing has been completed.');
+    }
+
+    public function getDemandData($id)
+    {
+        $demand = Demand::findOrFail($id);
+        return json_encode(array(
+            "statusCode" => 200,
+            "demand" => $demand,
+        ));
     }
 }

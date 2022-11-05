@@ -78,6 +78,7 @@
     });
 
 
+    // Remark 
     $(document).on("keyup", ".updateRemark", function() {
         var id = $(this).data('id');
         var value = $(this).val();
@@ -106,6 +107,7 @@
 
 
 
+    // Note 
     $(document).on("keyup", ".updateNote", function() {
         var id = $(this).data('id');
         var value = $(this).val();
@@ -133,6 +135,7 @@
     });
 
 
+    // Update Cancel 
     $(document).on("keyup", ".updateCancel", function() {
         var id = $(this).data('id');
         var value = $(this).val();
@@ -160,11 +163,41 @@
     });
 
 
+    // Update updateMedicalFail
     $(document).on("keyup", ".updateMedicalFail", function() {
         var id = $(this).data('id');
         var value = $(this).val();
 
         var url = '{{ url('update_medical_fail') }}';
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            method: 'GET',
+            url: url,
+            data: {
+                id: id,
+                value: value,
+            },
+            success: function(data) {
+                console.log(data)
+            },
+            error: function(data) {
+                console.log(data)
+            }
+        });
+    });
+
+
+
+    // Update Contract No 
+    $(document).on("keyup", ".updateContractNo", function() {
+        var id = $(this).data('id');
+        var value = $(this).val();
+
+        var url = '{{ url('update_contract_no') }}';
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

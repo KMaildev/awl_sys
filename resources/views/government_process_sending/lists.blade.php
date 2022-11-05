@@ -8,16 +8,40 @@
             {{ $government_proces->overseas_agencie->employer_name ?? '' }}
         </td>
 
+        {{-- DOE DATE --}}
         <td>
-            {{ $government_proces->thai_date ?? '' }}
+            {{ $government_proces->demand_table->demand_date ?? '' }}
+        </td>
+
+        {{-- DOE NUMBER --}}
+        <td>
+            {{ $government_proces->demand_table->demand_number ?? '' }}
+        </td>
+
+
+        <td>
+            {{ $government_proces->ygn_to_myawaddy ?? '' }}
         </td>
 
         <td>
-            {{ $government_proces->cabinet_date ?? '' }}
+            {{ $government_proces->myawaddy_to_thai ?? '' }}
         </td>
 
         <td>
-            {{ $government_proces->issue_date ?? '' }}
+            {{ $government_proces->male ?? '' }}
+        </td>
+
+        <td>
+            {{ $government_proces->female ?? '' }}
+        </td>
+
+        <td>
+            @php
+                $male = $government_proces->male ?? 0;
+                $female = $government_proces->female ?? 0;
+                $total = $male + $female;
+                echo $total;
+            @endphp
         </td>
 
         <td>

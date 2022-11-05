@@ -28,28 +28,16 @@
                                     #
                                 </th>
 
+                                <th style="color: white; width: 1%;">
+                                    No
+                                </th>
+
+                                <th class="text-center cw">
+                                    Gender
+                                </th>
+
                                 <th class="text-center cw">
                                     Name
-                                </th>
-
-                                <th class="text-center cw">
-                                    M/F
-                                </th>
-
-                                <th class="text-center cw">
-                                    N.R.C NO
-                                </th>
-
-                                <th class="text-center cw">
-                                    Father's name
-                                </th>
-
-                                <th class="text-center cw">
-                                    Mother's Name
-                                </th>
-
-                                <th class="text-center cw">
-                                    Qualification
                                 </th>
 
                                 <th class="text-center cw">
@@ -57,7 +45,40 @@
                                 </th>
 
                                 <th class="text-center cw">
-                                    Native town
+                                    Age
+                                </th>
+
+                                <th class="text-center cw">
+                                    Father's name
+                                </th>
+
+                                <th class="text-center cw">
+                                    Mother's name
+                                </th>
+
+                                <th class="text-center cw">
+                                    Qualification
+                                </th>
+
+                                <th class="text-center cw">
+                                    NRC
+                                </th>
+
+                                <th class="text-center cw">
+                                    Physical And Blindness Test
+                                </th>
+
+                                <th class="text-center cw">
+                                    Medical
+                                </th>
+
+                                <th class="text-center cw">
+                                    Covid Vaccine First Dose
+                                </th>
+
+
+                                <th class="text-center cw">
+                                    Covid Vaccine Second Dose
                                 </th>
 
                                 <th class="text-center cw">
@@ -65,15 +86,12 @@
                                 </th>
 
                                 <th class="text-center cw">
-                                    Come from to interview
+                                    Native Town
                                 </th>
 
-                                <th class="text-center cw">
-                                    Expiry date
-                                </th>
 
                                 <th class="text-center cw">
-                                    slip date
+                                    Come From To Interview
                                 </th>
 
                                 <th class="text-center cw">
@@ -81,7 +99,15 @@
                                 </th>
 
                                 <th class="text-center cw">
-                                    Medical fail X-ray(or)Hep-B
+                                    Passport Expire Date
+                                </th>
+
+                                <th class="text-center cw">
+                                    Passport Slip Date
+                                </th>
+
+                                <th class="text-center cw">
+                                    Passport Number
                                 </th>
 
                                 <th class="text-center cw">
@@ -89,7 +115,19 @@
                                 </th>
 
                                 <th class="text-center cw">
-                                    PP Number
+                                    Remark
+                                </th>
+
+                                <th class="text-center cw">
+                                    Fail Or Cancel
+                                </th>
+
+                                <th class="text-center cw">
+                                    Contract No
+                                </th>
+
+                                <th class="text-center cw">
+                                    Note
                                 </th>
 
                                 <th class="text-center cw">
@@ -104,27 +142,31 @@
                                     Sending
                                 </th>
 
-                                <th class="text-center cw">
-                                    Remark
-                                </th>
-
-                                <th class="text-center cw">
-                                    Note
-                                </th>
                             </tr>
                         </thead>
+
                         <tbody class="table-border-bottom-0">
                             @php
                                 $i = 1;
                             @endphp
                             @foreach ($name_lists as $key => $name_list)
-                                <tr>
+                                @if ($name_list->medical_fail != '' || $name_list->remark != '' || $name_list->fail_cancel)
+                                    @php
+                                        $color = 'red';
+                                    @endphp
+                                @else
+                                    @php
+                                        $color = 'black';
+                                    @endphp
+                                @endif
+                                <tr style="color: {{ $color }}; background-color: {{ $name_list->bg_color ?? '' }}">
+
                                     <td>
-                                        {{ $i++ }}
+                                        {{ $loop->iteration }}
                                     </td>
 
                                     <td>
-                                        {{ $name_list->name ?? '' }}
+                                        {{ $name_list->no ?? '' }}
                                     </td>
 
                                     <td>
@@ -132,7 +174,15 @@
                                     </td>
 
                                     <td>
-                                        {{ $name_list->nrc ?? '' }}
+                                        {{ $name_list->name ?? '' }}
+                                    </td>
+
+                                    <td>
+                                        {{ $name_list->date_of_birth ?? '' }}
+                                    </td>
+
+                                    <td>
+                                        {{ $name_list->age ?? '' }}
                                     </td>
 
                                     <td>
@@ -148,11 +198,24 @@
                                     </td>
 
                                     <td>
-                                        {{ $name_list->date_of_birth ?? '' }}
+                                        {{ $name_list->nrc ?? '' }}
                                     </td>
 
                                     <td>
-                                        {{ $name_list->native_town ?? '' }}
+                                        {{ $name_list->physical_and_blindness_test ?? '' }}
+                                    </td>
+
+                                    <td>
+                                        <input type="text" value="{{ $name_list->medical_fail ?? '' }}"
+                                            data-id="{{ $name_list->id }}" class="updateMedicalFail" style="width: 140px;">
+                                    </td>
+
+                                    <td>
+                                        {{ $name_list->covid_vaccine_first_dose ?? '' }}
+                                    </td>
+
+                                    <td>
+                                        {{ $name_list->covid_vaccine_second_dose ?? '' }}
                                     </td>
 
                                     <td>
@@ -160,31 +223,56 @@
                                     </td>
 
                                     <td>
+                                        {{ $name_list->native_town ?? '' }}
+                                    </td>
+
+                                    <td>
                                         {{ $name_list->come_from_to_interview ?? '' }}
                                     </td>
 
-                                    <td>
-                                        {{ $name_list->expiry_date ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->slip_date ?? '' }}
-                                    </td>
 
                                     <td>
                                         {{ $name_list->passport_issue_date ?? '' }}
                                     </td>
 
                                     <td>
-                                        @include('component.medical_fail')
+                                        {{ $name_list->expiry_date ?? '' }}
                                     </td>
+
+
+                                    <td>
+                                        {{ $name_list->slip_date ?? '' }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ $name_list->passport_number ?? '' }}
+                                    </td>
+
 
                                     <td>
                                         {{ $name_list->phone_number ?? '' }}
                                     </td>
 
+
                                     <td>
-                                        {{ $name_list->passport_number ?? '' }}
+                                        <input type="text" value="{{ $name_list->remark ?? '' }}"
+                                            data-id="{{ $name_list->id }}" class="updateRemark" style="width: 140px;">
+                                    </td>
+
+                                    <td>
+                                        <input type="text" value="{{ $name_list->fail_cancel ?? '' }}"
+                                            data-id="{{ $name_list->id }}" class="updateRemark" style="width: 140px;">
+                                    </td>
+
+                                    <td>
+                                        <input type="text" value="{{ $name_list->contract_no ?? '' }}"
+                                            data-id="{{ $name_list->id }}" class="updateContractNo" style="width: 140px;">
+                                    </td>
+
+                                    <td>
+                                        <input type="text" value="{{ $name_list->note ?? '' }}"
+                                            data-id="{{ $name_list->id }}" class="updateNote" style="width: 140px;">
                                     </td>
 
                                     {{-- PRE INTERVIEW --}}
@@ -215,13 +303,7 @@
                                         {{ $name_list->sendings_table->sending_date ?? '' }}
                                     </td>
 
-                                    <td>
-                                        @include('component.remark')
-                                    </td>
 
-                                    <td>
-                                        @include('component.note')
-                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

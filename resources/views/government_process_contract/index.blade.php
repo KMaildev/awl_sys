@@ -30,11 +30,15 @@
                                 </th>
 
                                 <th class="text-center cw">
-                                    Employer
+                                    Employer & Demand
                                 </th>
 
                                 <th class="text-center cw">
-                                    Thai Date
+                                    DOE Date
+                                </th>
+
+                                <th class="text-center cw">
+                                    DOE Number
                                 </th>
 
                                 <th class="text-center cw">
@@ -42,7 +46,19 @@
                                 </th>
 
                                 <th class="text-center cw">
-                                    Issue Date
+                                    Approval Date ( MM - Labor )
+                                </th>
+
+                                <th class="text-center cw">
+                                    Male
+                                </th>
+
+                                <th class="text-center cw">
+                                    Female
+                                </th>
+
+                                <th class="text-center cw">
+                                    Total
                                 </th>
 
                                 <th class="text-center cw">
@@ -74,4 +90,22 @@
 
 @section('script')
     {!! JsValidator::formRequest('App\Http\Requests\storeGovernmentProcessContract', '#create-form') !!}
+
+    <script>
+        $('select[id="demandId"]').on('change', function() {
+            var demandId = $(this).val();
+            if (demandId) {
+                $.ajax({
+                    url: '/get_demand_data/' + demandId,
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        console.log(data);
+                        DoeDate.value = data.demand.demand_number;
+                        DoeNumber.value = data.demand.demand_date;
+                    }
+                });
+            }
+        });
+    </script>
 @endsection

@@ -7,31 +7,56 @@
         </td>
 
         <td>
-            <select class="form-select form-select-sm @error('demand_id') is-invalid @enderror" name="demand_id">
+            <select class="form-select form-select-sm @error('demand_id') is-invalid @enderror" name="demand_id"
+                id="demandId">
                 <option value="">
                     Please Select
                 </option>
                 @foreach ($demands as $demand)
                     <option value="{{ $demand->id }}">
                         {{ $demand->overseas_agencie->employer_name ?? '' }}
+                        @
+                        {{ $demand->demand_date ?? '' }}
                     </option>
                 @endforeach
             </select>
         </td>
 
+        {{-- DOE DATE --}}
         <td>
-            <input type="text" class="form-control form-control-sm @error('thai_date') is-invalid @enderror"
-                name="thai_date" value="{{ old('thai_date') }}">
+            <input type="text" id="DoeDate">
+        </td>
+
+        {{-- DOE NUMBER	 --}}
+        <td>
+            <input type="text" id="DoeNumber">
         </td>
 
         <td>
-            <input type="text" class="form-control form-control-sm @error('cabinet_date') is-invalid @enderror"
-                name="cabinet_date" value="{{ old('cabinet_date') }}">
+            <input type="text" class="form-control form-control-sm @error('ygn_to_myawaddy') is-invalid @enderror"
+                name="ygn_to_myawaddy" value="{{ old('ygn_to_myawaddy') }}">
         </td>
 
         <td>
-            <input type="text" class="form-control form-control-sm @error('issue_date') is-invalid @enderror"
-                name="issue_date" value="{{ old('issue_date') }}">
+            <input type="text" class="form-control form-control-sm @error('myawaddy_to_thai') is-invalid @enderror"
+                name="myawaddy_to_thai" value="{{ old('myawaddy_to_thai') }}">
+        </td>
+
+        {{-- MALE --}}
+        <td>
+            <input type="text" class="form-control form-control-sm @error('male') is-invalid @enderror"
+                name="male" value="0" id="male" oninput="TotalMaleFemale()">
+        </td>
+
+        {{-- FEMALE	 --}}
+        <td>
+            <input type="text" class="form-control form-control-sm @error('female') is-invalid @enderror"
+                name="female" value="0" id="female" oninput="TotalMaleFemale()">
+        </td>
+
+        <td>
+            <input type="text" class="form-control form-control-sm" id="Total" readonly
+                style="text-align: right">
         </td>
 
         <td>
@@ -45,3 +70,13 @@
         </td>
     </tr>
 </form>
+
+<script>
+    function TotalMaleFemale() {
+        var male = document.getElementById("male").value;
+        var female = document.getElementById("female").value;
+        var total = parseInt(male) + parseInt(female);
+        console.log(male)
+        document.getElementById("Total").value = total;
+    }
+</script>

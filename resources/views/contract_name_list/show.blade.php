@@ -2,11 +2,16 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <h6 class="mt-4">
+
+            <h4 class="mt-4" style="color: black">
+                Company :
                 {{ strtoupper($contract->overseas_agencie->employer_name ?? '') }}
                 /
-                {{ $contract->lot ?? '' }}
-            </h6>
+                Contact Date :
+                ({{ $contract->contract_date ?? '' }})
+            </h4>
+
+
             <div class="card mb-3">
                 <div class="card-header border-bottom">
                     <ul class="nav nav-tabs card-header-tabs" role="tablist">

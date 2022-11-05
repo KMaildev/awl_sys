@@ -9,7 +9,19 @@
         </td>
 
         <td>
+            {{ $demand->demand_number ?? '' }}
+        </td>
+
+        <td>
             {{ $demand->demand_date ?? '' }}
+        </td>
+
+        <td>
+            {{ $demand->approval_number ?? '' }}
+        </td>
+
+        <td>
+            {{ $demand->approval_date ?? '' }}
         </td>
 
         <td class="right">
@@ -29,6 +41,13 @@
             @endphp
         </td>
 
+
+        <td class="right">
+            <a href="{{ Storage::url($demand->file) }}" target="_blank">
+                {{ $demand->file_name ?? '' }}
+            </a>
+        </td>
+        
         <td class="text-center">
             <button type="button" class="btn btn-primary btn-sm dropdown-toggle block" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" style="width: 100%;">

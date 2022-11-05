@@ -137,4 +137,18 @@ class NameListController extends Controller
             "statusCode" => 200,
         ));
     }
+
+
+    public function updateContractNo(Request $request)
+    {
+        $id = $request->id;
+        $value = $request->value;
+
+        $temp = NameList::findOrFail($id);
+        $temp->contract_no = $value;
+        $temp->update();
+        return json_encode(array(
+            "statusCode" => 200,
+        ));
+    }
 }

@@ -25,6 +25,8 @@ class updateGovernmentProcessContract extends FormRequest
     {
         return [
             'demand_id' => 'required',
+            'male' => 'numeric',
+            'female' => 'numeric',
         ];
     }
 }

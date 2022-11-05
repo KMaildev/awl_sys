@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 25, 2022 at 09:40 AM
+-- Generation Time: Nov 05, 2022 at 08:23 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.29
 
@@ -46,8 +46,7 @@ CREATE TABLE `contracts` (
 --
 
 INSERT INTO `contracts` (`id`, `demand_id`, `overseas_agencie_id`, `lot`, `contract_date`, `male`, `female`, `remark`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'LOT1', '1.1.2022', '1', '0', NULL, '1', '2022-10-24 22:12:02', '2022-10-24 22:32:52'),
-(2, 1, 1, 'LOT2', '1.1.2022', '0', '1', NULL, '1', '2022-10-24 22:16:31', '2022-10-24 22:32:56');
+(1, 1, 1, 'LOT1', '1.1.2022', '3', '0', NULL, '1', '2022-11-03 21:51:21', '2022-11-03 21:51:21');
 
 -- --------------------------------------------------------
 
@@ -82,16 +81,22 @@ CREATE TABLE `demands` (
   `male` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `female` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `demand_number` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `approval_number` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `approval_date` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `file` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `file_name` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `demands`
 --
 
-INSERT INTO `demands` (`id`, `overseas_agencie_id`, `demand_date`, `male`, `female`, `created_at`, `updated_at`) VALUES
-(1, 1, '1.1.2022', '100', '0', '2022-10-03 02:14:52', '2022-10-03 02:15:07'),
-(2, 2, '1.1.2022', '10', '20', '2022-10-18 09:11:50', '2022-10-18 09:11:50');
+INSERT INTO `demands` (`id`, `overseas_agencie_id`, `demand_date`, `male`, `female`, `created_at`, `updated_at`, `demand_number`, `approval_number`, `approval_date`, `file`, `file_name`) VALUES
+(1, 1, '1.1.2022', '3', '0', '2022-11-03 21:28:24', '2022-11-04 01:49:24', '001', NULL, NULL, NULL, NULL),
+(2, 1, '1.1.2022', '3', '0', '2022-11-04 01:49:32', '2022-11-04 01:49:32', '002', NULL, NULL, NULL, NULL),
+(3, 1, 'sadf', '10', '10', '2022-11-04 02:43:40', '2022-11-04 02:43:40', 'asd', 'sadf', 'asdf', 'public/files/BRjyPcgHeTmPIBkxBeyvpVKKhXERHEscwvBz5znF.doc', 'Active-Passiv (1).doc');
 
 -- --------------------------------------------------------
 
@@ -143,17 +148,19 @@ CREATE TABLE `government_process_contracts` (
   `file_path` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `male` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `female` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `government_process_contracts`
 --
 
-INSERT INTO `government_process_contracts` (`id`, `demand_id`, `overseas_agencie_id`, `thai_date`, `cabinet_date`, `issue_date`, `file_name`, `file_path`, `user_id`, `created_at`, `updated_at`) VALUES
-(4, 1, 1, '1.1.2022', '1.1.2022', '1.1.2022', 'Alpha World Link Co, Ltd ( Code of Conduct ).pdf', 'public/files/XjEr4U8zYfs2jxWVXdkOFoPim2NkvEUOuRUsRsEw.pdf', 1, '2022-10-18 09:03:02', '2022-10-18 09:03:02'),
-(5, 2, 2, '1.1.2022', '1.1.2022', '11.1.2022', 'HdfUEWRB4Jcvycw2jJjrEObu1YO6MNPJGHVNbEIN.pdf', 'public/files/LoQTrQGiIjaI892RKVFvcfl3evwQVv54d6QFbBAv.pdf', 1, '2022-10-18 09:12:10', '2022-10-18 09:13:32'),
-(6, 1, 1, '1.1.2022', '1.1.2022', '1.1.2022', 'Alpha World Link Co, Ltd ( Code of Conduct ).pdf', 'public/files/b6sz1i2PDcm84Iw1rYXXC34OHvNBzlYLs8S7PUFw.pdf', 1, '2022-10-18 09:23:25', '2022-10-18 09:23:25');
+INSERT INTO `government_process_contracts` (`id`, `demand_id`, `overseas_agencie_id`, `thai_date`, `cabinet_date`, `issue_date`, `file_name`, `file_path`, `user_id`, `created_at`, `updated_at`, `male`, `female`) VALUES
+(1, 1, 1, '1.1.2022', '1.1.2022', NULL, '8 copy.png', 'public/files/Wy8WvclJ6MDh8kYT24Gou98A3XOFZIz6VwsI6DX6.png', 1, '2022-11-04 03:14:34', '2022-11-04 03:26:01', '50', '10'),
+(2, 2, 1, 'cab', 'appo', NULL, '', '', 1, '2022-11-04 03:18:55', '2022-11-04 03:18:55', '4', '1'),
+(3, 1, 1, '1.1.2022', '1.1.2022', NULL, '', '', 1, '2022-11-04 03:21:07', '2022-11-04 03:21:07', '10', '10');
 
 -- --------------------------------------------------------
 
@@ -172,16 +179,19 @@ CREATE TABLE `government_process_sendings` (
   `file_path` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `ygn_to_myawaddy` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `myawaddy_to_thai` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `male` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `female` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `government_process_sendings`
 --
 
-INSERT INTO `government_process_sendings` (`id`, `demand_id`, `overseas_agencie_id`, `thai_date`, `cabinet_date`, `issue_date`, `file_name`, `file_path`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '1.1.2022', '1.1.2022', '1.1.2022', 'Alpha World Link Co, Ltd ( Code of Conduct ).pdf', 'public/files/atKXbuHa53K2LUUFwJUyswpwXb1mNh2YJOJL4vqi.pdf', 1, '2022-10-18 09:24:29', '2022-10-18 09:25:06'),
-(2, 2, 2, '2.2.2022', '2.2.2022', '2.2.2022', 'BThTQaPa01uAcNOkN1YQV3Ybmy5ptmcYP6mNMWJC.doc', 'public/files/2RcJuNbXURlgw3bvYQjSIKJRJeYCnbsiWOt9Qbge.doc', 1, '2022-10-18 09:24:45', '2022-10-18 09:24:45');
+INSERT INTO `government_process_sendings` (`id`, `demand_id`, `overseas_agencie_id`, `thai_date`, `cabinet_date`, `issue_date`, `file_name`, `file_path`, `user_id`, `created_at`, `updated_at`, `ygn_to_myawaddy`, `myawaddy_to_thai`, `male`, `female`) VALUES
+(1, 3, 1, '', '', '', 'Active-Passiv (1).doc', 'public/files/tcAY5QGGG4GhKv5kovvDSxAYF9Ry7SznsySOkIBt.doc', 1, '2022-11-05 00:38:51', '2022-11-05 00:46:20', '1.1.2023', '1.1.2023', '20', '10');
 
 -- --------------------------------------------------------
 
@@ -207,9 +217,9 @@ CREATE TABLE `interviews` (
 --
 
 INSERT INTO `interviews` (`id`, `interview_title`, `interview_date`, `male`, `female`, `interview_type`, `overseas_agencie_id`, `demand_id`, `created_at`, `updated_at`) VALUES
-(1, 'First Interview', '1.1.2022', '2', '0', 'employer_interview', 1, 1, '2022-10-24 22:11:29', '2022-10-24 22:20:34'),
-(2, 'First Interview', '1.2.2022', '0', '2', 'employer_interview', 1, 1, '2022-10-24 22:16:13', '2022-10-24 22:20:41'),
-(3, 'First Interview', '1.1.2022', '1', '1', 'pre_interview', 1, 1, '2022-10-24 22:53:48', '2022-10-24 22:53:48');
+(1, 'First Interview', '1.1.2022', '3', '0', 'pre_interview', 1, 1, '2022-11-03 21:28:44', '2022-11-03 21:28:44'),
+(2, 'Thai First Interview', '1.1.2022', '3', '0', 'employer_interview', 1, 1, '2022-11-03 21:43:11', '2022-11-03 21:43:11'),
+(3, 'Second', '1.1.2022', '10', '0', 'pre_interview', 1, 3, '2022-11-04 21:57:26', '2022-11-04 21:57:26');
 
 -- --------------------------------------------------------
 
@@ -252,7 +262,16 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (31, '2022_10_23_043843_create_sendings_table', 22),
 (33, '2022_10_25_050616_add_sending_field_to_name_lists_table', 23),
 (34, '2022_10_25_054423_add_note_to_name_lists_table', 24),
-(35, '2022_10_25_072930_add_fileds_to_users_table', 25);
+(35, '2022_10_25_072930_add_fileds_to_users_table', 25),
+(36, '2022_11_04_074217_add_physical_and_blindness_test_to_name_lists_table', 26),
+(37, '2022_11_04_075202_add_covid_info_to_name_lists_table', 27),
+(38, '2022_11_04_081651_add_demand_number_to_demands_table', 28),
+(39, '2022_11_04_090934_add_demand_info_to_demands_table', 29),
+(40, '2022_11_04_091253_add_file_name_to_demands_table', 30),
+(41, '2022_11_04_094146_add_mail_female_to_government_process_contracts_table', 31),
+(42, '2022_11_05_042534_add_contract_no_to_name_lists_table', 32),
+(43, '2022_11_05_043625_add_age_to_name_lists_table', 33),
+(44, '2022_11_05_070624_add_date_to_government_process_sendings_table', 34);
 
 -- --------------------------------------------------------
 
@@ -297,20 +316,21 @@ CREATE TABLE `name_lists` (
   `sending_id` int(11) DEFAULT NULL,
   `sending_submit_date` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sending_user_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `note` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `note` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `physical_and_blindness_test` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `covid_vaccine_first_dose` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `covid_vaccine_second_dose` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `contract_no` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `age` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `name_lists`
 --
 
-INSERT INTO `name_lists` (`id`, `interview_id`, `demand_id`, `overseas_agencie_id`, `name`, `gender`, `nrc`, `father_name`, `mother_name`, `qualification`, `date_of_birth`, `native_town`, `region`, `come_from_to_interview`, `expiry_date`, `slip_date`, `passport_issue_date`, `medical_fail`, `phone_number`, `passport_number`, `remark`, `labour_card_no`, `issue_of_labour_date`, `join_date`, `bg_color`, `interview_type`, `created_at`, `updated_at`, `no`, `fail_cancel`, `contract_id`, `contract_submit_date`, `contract_user_id`, `sending_id`, `sending_submit_date`, `sending_user_id`, `note`) VALUES
-(1, 1, 1, 1, 'Pyae Pyae Phyo', 'F', '14/WAKAMA(N)318385', 'Kyaw Win', 'Myint Myint', '10', '30.10.2003', 'Wakema', 'Ayarwaddy', 'Wakema', 'Nail', 'Nail', 'Nail', '', '097767029109', 'Nail', 'Black List', NULL, NULL, '2022-10-25 05:01:29', NULL, 'employer_interview', '2022-10-24 22:31:29', '2022-10-24 23:51:54', '1', '', 1, '2022-10-25 05:03:03', 1, 1, '2022-10-25 05:09:52', '1', 'Ok'),
-(2, 1, 1, 1, 'Cherry Lwin', 'F', '14/WaKAMA(N)318378', 'Kyaw Moe Khaing', 'Htay Than', '10', '7.5.2003', 'Wakema', 'Ayarwaddy', 'Wakema', '20.2.2027', '-', '21.2.2022', '', '09776731889', 'MF681124', '', NULL, NULL, '2022-10-25 05:01:29', '#ffffff', 'employer_interview', '2022-10-24 22:31:29', '2022-10-24 23:51:39', '2', '', 2, '2022-10-25 05:03:11', 1, 1, '2022-10-25 05:12:41', '1', 'No'),
-(3, 3, 1, 1, 'Cherry Lwin', 'F', '14/WaKAMA(N)318378', 'Kyaw Moe Khaing', 'Htay Than', '10', '7.5.2003', 'Wakema', 'Ayarwaddy', 'Wakema', '20.2.2027', '-', '21.2.2022', '', '09776731889', 'MF681124', 'Failed', NULL, NULL, '2022-10-25 05:26:12', '#ffffff', 'pre_interview', '2022-10-24 22:56:12', '2022-10-24 22:56:45', '2', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 3, 1, 1, 'Ei Ei Han', 'F', '14/PHAPANA(N)173838', 'Win Shwe', 'Than Than', '8', '17.12.1991', 'Pharpon', 'Ayarwaddy', 'Pharpon', 'Nail', 'Nail', 'Nail', '', '09686554160', 'Nail', '', NULL, NULL, '2022-10-25 05:26:12', '#ffffff', 'pre_interview', '2022-10-24 22:56:12', '2022-10-24 22:59:44', '3', 'Book Fail', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 3, 1, 1, 'Cherry Lwin', 'F', '14/WaKAMA(N)318378', 'Kyaw Moe Khaing', 'Htay Than', '10', '7.5.2003', 'Wakema', 'Ayarwaddy', 'Wakema', '20.2.2027', '-', '21.2.2022', '', '09776731889', 'MF681124', '', NULL, NULL, '2022-10-25 05:36:07', NULL, 'pre_interview', '2022-10-24 23:06:07', '2022-10-24 23:36:00', '2', '', NULL, NULL, NULL, NULL, NULL, NULL, 'asdf'),
-(6, 3, 1, 1, 'Ei Ei Han', 'F', '14/PHAPANA(N)173838', 'Win Shwe', 'Than Than', '8', '17.12.1991', 'Pharpon', 'Ayarwaddy', 'Pharpon', 'Nail', 'Nail', 'Nail', '', '09686554160', 'Nail', '', NULL, NULL, '2022-10-25 05:36:07', NULL, 'pre_interview', '2022-10-24 23:06:07', '2022-10-24 23:36:01', '3', '', NULL, NULL, NULL, NULL, NULL, NULL, 'asdf');
+INSERT INTO `name_lists` (`id`, `interview_id`, `demand_id`, `overseas_agencie_id`, `name`, `gender`, `nrc`, `father_name`, `mother_name`, `qualification`, `date_of_birth`, `native_town`, `region`, `come_from_to_interview`, `expiry_date`, `slip_date`, `passport_issue_date`, `medical_fail`, `phone_number`, `passport_number`, `remark`, `labour_card_no`, `issue_of_labour_date`, `join_date`, `bg_color`, `interview_type`, `created_at`, `updated_at`, `no`, `fail_cancel`, `contract_id`, `contract_submit_date`, `contract_user_id`, `sending_id`, `sending_submit_date`, `sending_user_id`, `note`, `physical_and_blindness_test`, `covid_vaccine_first_dose`, `covid_vaccine_second_dose`, `contract_no`, `age`) VALUES
+(1, 1, 1, 1, 'Mg Mg', 'F', '1/abc(N)009221', 'U Mg Mg', 'Daw Mya', '10', '1.1.1995', 'Yangon', 'Yangon', 'Yangon', '1.1.2021', '1.1.2021', '1.1.2022', 'Pass', '9123123123', 'ME00001', NULL, NULL, NULL, '2022-11-05 04:48:05', NULL, 'pre_interview', '2022-11-04 22:18:05', '2022-11-04 22:53:01', '1', 'Fail', NULL, NULL, NULL, NULL, NULL, NULL, 'Note', 'Pass Blind', '1.1.2022', '1.1.2022', '10', '20'),
+(2, 2, 1, 1, 'Mg Mg', 'F', '1/abc(N)009221', 'U Mg Mg', 'Daw Mya', '10', '1.1.1995', 'Yangon', 'Yangon', 'Yangon', '1.1.2021', '1.1.2021', '1.1.2022', NULL, '9123123123', 'ME00001', NULL, NULL, NULL, '2022-11-05 04:54:41', NULL, 'employer_interview', '2022-11-04 22:24:41', '2022-11-04 23:14:50', '1', NULL, 1, '2022-11-05 05:44:50', 1, NULL, NULL, NULL, NULL, 'Pass Blind', '1.1.2022', '1.1.2022', '20', '20');
 
 -- --------------------------------------------------------
 
@@ -337,8 +357,7 @@ CREATE TABLE `overseas_agencies` (
 --
 
 INSERT INTO `overseas_agencies` (`id`, `employer_name`, `type_of_company`, `company_phone`, `company_email`, `company_website`, `company_address`, `countrie_id`, `remark`, `created_at`, `updated_at`) VALUES
-(1, 'Testing', NULL, NULL, NULL, NULL, NULL, '1', NULL, '2022-10-03 02:14:41', '2022-10-03 02:14:41'),
-(2, 'ABC Thai Company', NULL, NULL, NULL, NULL, NULL, '1', NULL, '2022-10-18 09:11:41', '2022-10-18 09:11:41');
+(1, 'KM', 'Software', '09123123123', NULL, NULL, NULL, '1', NULL, '2022-11-03 21:28:11', '2022-11-03 21:28:11');
 
 -- --------------------------------------------------------
 
@@ -395,13 +414,6 @@ CREATE TABLE `pre_interviews` (
   `interview_title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `pre_interviews`
---
-
-INSERT INTO `pre_interviews` (`id`, `demand_id`, `interview_date`, `male`, `female`, `created_at`, `updated_at`, `overseas_agencie_id`, `interview_title`) VALUES
-(1, 1, '1.10.2022', '50', '0', '2022-10-16 23:27:58', '2022-10-16 23:27:58', 1, 'First Interview');
-
 -- --------------------------------------------------------
 
 --
@@ -427,7 +439,8 @@ CREATE TABLE `sendings` (
 --
 
 INSERT INTO `sendings` (`id`, `contract_id`, `demand_id`, `overseas_agencie_id`, `sending_date`, `male`, `female`, `remark`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, '1.1.2022', '2', '0', NULL, '1', '2022-10-24 22:14:48', '2022-10-24 22:33:19');
+(1, 1, 1, 1, '1.2.2022', '3', '0', NULL, '1', '2022-11-03 21:53:33', '2022-11-03 21:53:33'),
+(2, 1, 1, 1, '1.3.2022', '1', '0', NULL, '1', '2022-11-03 21:54:05', '2022-11-03 21:54:05');
 
 -- --------------------------------------------------------
 
@@ -461,7 +474,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `employee_id`, `phone`, `nrc_number`, `gender`, `address`, `join_date`, `passport_photo`, `last_login_at`, `last_login_ip`, `device`) VALUES
-(1, 'U Admin', 'admin@gmail.com', NULL, '$2y$10$XghoSCFS2wmT1V8yHZC1HOeFn.2GEcMBOjA7ecXgzxLiEAdJxij96', NULL, '2022-09-28 23:48:46', '2022-10-25 01:05:35', '00001', '091231231233', '1/abc(n)009221', 'male', 'YGN', '2022-09-29 03:07 PM', 'public/passport/zFWl8Bms7NsJ2ULPZFVnHQRpMrzYJkkdYHYMfVmV.png', '2022-10-25 07:35:35', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'),
+(1, 'U Admin', 'admin@gmail.com', NULL, '$2y$10$XghoSCFS2wmT1V8yHZC1HOeFn.2GEcMBOjA7ecXgzxLiEAdJxij96', NULL, '2022-09-28 23:48:46', '2022-11-04 21:52:05', '00001', '091231231233', '1/abc(n)009221', 'male', 'YGN', '2022-09-29 03:07 PM', 'public/passport/zFWl8Bms7NsJ2ULPZFVnHQRpMrzYJkkdYHYMfVmV.png', '2022-11-05 04:22:05', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'),
 (2, 'Mg Mg', 'mgmg@gmail.com', NULL, '$2y$10$Y/SX9IYZlHq8K85iEdedAuCZNwI8GkK.wBuOjItk2OZ0LnG8oC11e', NULL, '2022-09-29 01:31:35', '2022-10-25 01:06:49', '00002', '09123123123', '1/abc(n)009221', 'male', 'Yangon', '2022-10-25 02:06 PM', 'public/passport/HDdLmt2GDQemtebUgYajsRsVW1SOj75IYJya1Eqi.png', NULL, NULL, NULL);
 
 --
@@ -576,7 +589,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contracts`
 --
 ALTER TABLE `contracts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -588,7 +601,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `demands`
 --
 ALTER TABLE `demands`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `employer_interviews`
@@ -606,13 +619,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `government_process_contracts`
 --
 ALTER TABLE `government_process_contracts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `government_process_sendings`
 --
 ALTER TABLE `government_process_sendings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `interviews`
@@ -624,19 +637,19 @@ ALTER TABLE `interviews`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `name_lists`
 --
 ALTER TABLE `name_lists`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `overseas_agencies`
 --
 ALTER TABLE `overseas_agencies`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -648,13 +661,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `pre_interviews`
 --
 ALTER TABLE `pre_interviews`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sendings`
 --
 ALTER TABLE `sendings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -1,4 +1,4 @@
-<form action="{{ route('demand.store') }}" method="post" id="create-form" autocomplete="off">
+<form action="{{ route('demand.store') }}" method="post" id="create-form" autocomplete="off" enctype="multipart/form-data">
     @csrf
     <tr>
         <td>
@@ -20,8 +20,23 @@
         </td>
 
         <td>
+            <input type="text" class="form-control form-control-sm @error('demand_number') is-invalid @enderror"
+                name="demand_number">
+        </td>
+
+        <td>
             <input type="text" class="form-control form-control-sm @error('demand_date') is-invalid @enderror"
                 name="demand_date">
+        </td>
+
+        <td>
+            <input type="text" class="form-control form-control-sm @error('approval_number') is-invalid @enderror"
+                name="approval_number">
+        </td>
+
+        <td>
+            <input type="text" class="form-control form-control-sm @error('approval_date') is-invalid @enderror"
+                name="approval_date">
         </td>
 
         <td>
@@ -37,6 +52,10 @@
         <td>
             <input type="text" class="form-control form-control-sm" id="Total" readonly
                 style="text-align: right">
+        </td>
+
+        <td>
+            <input type="file" class="form-control form-control-sm" name="files">
         </td>
 
         <td class="text-center">

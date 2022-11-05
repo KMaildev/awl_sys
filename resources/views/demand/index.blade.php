@@ -33,7 +33,19 @@
                                 </th>
 
                                 <th class="text-center cw">
+                                    Demand Number
+                                </th>
+
+                                <th class="text-center cw">
                                     Demand Date
+                                </th>
+
+                                <th class="text-center cw">
+                                    Approval Number (MM - Labor)
+                                </th>
+
+                                <th class="text-center cw">
+                                    Approval Date ( MM - Labor )
                                 </th>
 
                                 <th class="text-center cw">
@@ -46,6 +58,10 @@
 
                                 <th class="text-center cw">
                                     Total
+                                </th>
+
+                                <th class="text-center cw">
+                                    Files
                                 </th>
 
                                 <th class="text-center cw">
@@ -65,7 +81,7 @@
                         </tbody>
 
                         <tr>
-                            <td colspan="3">
+                            <td colspan="6">
                                 Total
                             </td>
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\ContractNameListController;
+use App\Http\Controllers\ContractNameListExportController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\DemandController;
 use App\Http\Controllers\EmployerInterviewController;
@@ -37,6 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('demand', DemandController::class);
     Route::resource('pre_intervies', PreInterviewController::class);
 
+    Route::get('get_demand_data/{id}', [DemandController::class, 'getDemandData'])->name('get_demand_data');
+
     Route::resource('interview_name_list', InterviewNameListController::class);
     Route::get('interview_name_list_details/{id}', [InterviewNameListController::class, 'interviewNameListDetails'])->name('interview_name_list_details');
     Route::get('interview_name_list_export/{id}', [InterviewNameListController::class, 'interviewNameListExport'])->name('interview_name_list_export');
@@ -60,11 +63,15 @@ Route::middleware('auth')->group(function () {
 
 
 
-
     Route::get('update_remark', [NameListController::class, 'updateRemark'])->name('update_remark');
     Route::get('update_note', [NameListController::class, 'updateNote'])->name('update_note');
     Route::get('update_cancel', [NameListController::class, 'updateFailCancel'])->name('update_cancel');
     Route::get('update_medical_fail', [NameListController::class, 'updateMedicalFail'])->name('update_medical_fail');
+    Route::get('update_contract_no', [NameListController::class, 'updateContractNo'])->name('update_contract_no');
+
+    // Contract Name List 
+    Route::get('contract_name_list_export/{id}', [ContractNameListExportController::class, 'contractNameListExport'])->name('contract_name_list_export');
+
 
 
     // No Using 

@@ -83,6 +83,27 @@ class NameListController extends Controller
         //
     }
 
+    public function nameListClear()
+    {
+        NameList::where('name', '')
+            // ->orWhere('gender', '')
+            // ->orWhere('nrc', '')
+            // ->orWhere('father_name', '')
+            // ->orWhere('qualification', '')
+            // ->orWhere('date_of_birth', '')
+            // ->orWhere('region', '')
+            // ->orWhere('come_from_to_interview', '')
+            // ->orWhere('expiry_date', '')
+            // ->orWhere('slip_date', '')
+            // ->orWhere('passport_issue_date', '')
+            // ->orWhere('phone_number', '')
+            // ->orWhere('passport_number', '')
+            // ->orWhere('remark', '')
+            // ->orWhere('labour_card_no', '')
+            ->delete();
+        return redirect()->back()->with('success', 'Your processing has been completed.');
+    }
+
 
     public function updateRemark(Request $request)
     {

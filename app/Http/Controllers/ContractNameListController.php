@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateNameListContract;
 use App\Models\Contract;
 use App\Models\Interview;
 use App\Models\NameList;
@@ -79,21 +80,20 @@ class ContractNameListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateNameListContract $request, $id)
     {
         $contract_id = $id;
-        if ($request->nameList) {
-            foreach ($request->nameList as $key => $value) {
-                $id = $value['name_list_id'];
-                $name_list = NameList::findOrFail($id);
-                $name_list->contract_id = $contract_id;
-                $name_list->contract_submit_date = date("Y-m-d H:i:s");
-                $name_list->contract_user_id = auth()->user()->id;
-                $name_list->update();
-            }
-            return redirect()->back()->with('success', 'Your processing has been completed.');
+        $data = $request->except('_token');
+        $name_lists = count($data['name_list_id']);
+        for ($i = 0; $i < $name_lists; $i++) {
+            $id = $data['name_list_id'][$i];
+            $name_list = NameList::findOrFail($id);
+            $name_list->contract_id = $contract_id;
+            $name_list->contract_submit_date = date("Y-m-d H:i:s");
+            $name_list->contract_user_id = auth()->user()->id;
+            $name_list->update();
         }
-        return redirect()->back()->with('error', 'Error.');
+        return redirect()->back()->with('success', 'Your processing has been completed.');
     }
 
     /**

@@ -37,9 +37,6 @@
         {{ $name_list->father_name ?? '' }}
     </td>
 
-    <td>
-        {{ $name_list->mother_name ?? '' }}
-    </td>
 
     <td>
         {{ $name_list->qualification ?? '' }}
@@ -87,7 +84,6 @@
         {{ $name_list->expiry_date ?? '' }}
     </td>
 
-
     <td>
         {{ $name_list->slip_date ?? '' }}
     </td>
@@ -99,13 +95,19 @@
 
 
     <td>
+        {{ $name_list->departure_date ?? '' }}
+    </td>
+
+
+
+    <td>
         {{ $name_list->phone_number ?? '' }}
     </td>
 
 
     <td>
-        <input type="text" value="{{ $name_list->remark ?? '' }}" data-id="{{ $name_list->id }}" class="updateRemark"
-            style="width: 140px;">
+        <input type="text" value="{{ $name_list->remark ?? '' }}" data-id="{{ $name_list->id }}"
+            class="updateRemark" style="width: 140px;">
     </td>
 
     <td>

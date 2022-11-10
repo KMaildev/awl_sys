@@ -28,10 +28,6 @@
     </td>
 
     <td>
-        {{ $name_list->mother_name ?? '' }}
-    </td>
-
-    <td>
         {{ $name_list->qualification ?? '' }}
     </td>
 
@@ -84,6 +80,10 @@
 
     <td>
         {{ $name_list->passport_number ?? '' }}
+    </td>
+
+    <td>
+        {{ $name_list->departure_date ?? '' }}
     </td>
 
 

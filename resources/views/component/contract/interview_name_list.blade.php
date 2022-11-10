@@ -10,8 +10,11 @@
 <tr style="color: {{ $color }}; background-color: {{ $name_list->bg_color ?? '' }}">
 
     <td>
-        <input type="checkbox" class='checkbox' name="nameList[{{ $loop_index++ }}][name_list_id]"
-            value="{{ $name_list->id }}">
+        {{-- <input type="checkbox" class='checkbox' name="nameList[{{ $loop_index++ }}][name_list_id]"
+            value="{{ $name_list->id }}"> --}}
+
+        <input type="checkbox" class='checkbox' name="name_list_id[]" value="{{ $name_list->id }}">
+
         {{ $loop->iteration }}
     </td>
 
@@ -37,10 +40,6 @@
 
     <td>
         {{ $name_list->father_name ?? '' }}
-    </td>
-
-    <td>
-        {{ $name_list->mother_name ?? '' }}
     </td>
 
     <td>
@@ -99,6 +98,10 @@
         {{ $name_list->passport_number ?? '' }}
     </td>
 
+    <td>
+        {{ $name_list->departure_date ?? '' }}
+    </td>
+
 
     <td>
         {{ $name_list->phone_number ?? '' }}
@@ -125,3 +128,5 @@
             style="width: 140px;">
     </td>
 </tr>
+
+

@@ -4,7 +4,7 @@
         <input type="text" class="form-control" placeholder="Search: Name, N.R.C NO" id="nameListSearch">
     </div>
 
-    <form action="{{ route('contract_name_list.update', $contract->id) }}" method="post">
+    <form action="{{ route('contract_name_list.update', $contract->id) }}" method="post" id="create-form">
         @csrf
         @method('PUT')
 
@@ -53,31 +53,34 @@
 </div>
 
 @section('script')
-    <script>
-        $(document).ready(function() {
-            // Check or Uncheck All checkboxes
-            $("#checkall").change(function() {
-                var checked = $(this).is(':checked');
-                if (checked) {
-                    $(".checkbox").each(function() {
-                        $(this).prop("checked", true);
-                    });
-                } else {
-                    $(".checkbox").each(function() {
-                        $(this).prop("checked", false);
-                    });
-                }
-            });
-
-            // Changing state of CheckAll checkbox 
-            $(".checkbox").click(function() {
-                if ($(".checkbox").length == $(".checkbox:checked").length) {
-                    $("#checkall").prop("checked", true);
-                } else {
-                    $("#checkall").prop("checked", false);
-                }
-
-            });
+@section('script')
+    {!! JsValidator::formRequest('App\Http\Requests\UpdateNameListContract', '#create-form') !!}
+@endsection
+<script>
+    $(document).ready(function() {
+        // Check or Uncheck All checkboxes
+        $("#checkall").change(function() {
+            var checked = $(this).is(':checked');
+            if (checked) {
+                $(".checkbox").each(function() {
+                    $(this).prop("checked", true);
+                });
+            } else {
+                $(".checkbox").each(function() {
+                    $(this).prop("checked", false);
+                });
+            }
         });
-    </script>
+
+        // Changing state of CheckAll checkbox 
+        $(".checkbox").click(function() {
+            if ($(".checkbox").length == $(".checkbox:checked").length) {
+                $("#checkall").prop("checked", true);
+            } else {
+                $("#checkall").prop("checked", false);
+            }
+
+        });
+    });
+</script>
 @endsection

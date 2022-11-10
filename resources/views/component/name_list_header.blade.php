@@ -29,10 +29,6 @@
         </th>
 
         <th class="text-center cw">
-            Mother's name
-        </th>
-
-        <th class="text-center cw">
             Qualification
         </th>
 
@@ -64,7 +60,7 @@
         <th class="text-center cw">
             Native Town
         </th>
-        
+
 
         <th class="text-center cw">
             Come From To Interview
@@ -84,6 +80,10 @@
 
         <th class="text-center cw">
             Passport Number
+        </th>
+
+        <th class="text-center cw">
+            Departure Date
         </th>
 
         <th class="text-center cw">

@@ -124,6 +124,7 @@
                 </a>
             </li>
 
+            
             <li class="menu-item">
                 <a href="{{ route('search_name_list.index') }}" class="menu-link">
                     Search

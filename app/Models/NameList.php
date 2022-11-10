@@ -42,6 +42,7 @@ class NameList extends Model
         'join_date',
         'created_at',
         'updated_at',
+        'departure_date',
     ];
 
     public function pre_interviews_table()

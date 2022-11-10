@@ -69,6 +69,8 @@ Route::middleware('auth')->group(function () {
     Route::get('update_medical_fail', [NameListController::class, 'updateMedicalFail'])->name('update_medical_fail');
     Route::get('update_contract_no', [NameListController::class, 'updateContractNo'])->name('update_contract_no');
 
+    Route::get('name_list_clear', [NameListController::class, 'nameListClear'])->name('name_list_clear');
+
     // Contract Name List 
     Route::get('contract_name_list_export/{id}', [ContractNameListExportController::class, 'contractNameListExport'])->name('contract_name_list_export');
 

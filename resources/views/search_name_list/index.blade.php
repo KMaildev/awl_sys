@@ -15,6 +15,15 @@
                                     <input type="text" class="form-control form-control-sm" placeholder="Search"
                                         name="search">
                                 </form>
+
+                                <a href="{{ route('name_list_clear') }}" class="dt-button create-new btn btn-danger btn-sm">
+                                    <span>
+                                        <i class="bx bx-plus me-sm-2"></i>
+                                        <span class="d-none d-sm-inline-block">
+                                            Clear Name List ()
+                                        </span>
+                                    </span>
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-@if ($name_list->medical_fail != '' || $name_list->remark != '' || $name_list->fail_cancel)
+@if ($name_list->medical_fail != '' || $name_list->remark != '' || $name_list->fail_cancel != '')
     @php
         $color = 'red';
     @endphp
@@ -106,8 +106,8 @@
 
 
     <td>
-        <input type="text" value="{{ $name_list->remark ?? '' }}" data-id="{{ $name_list->id }}"
-            class="updateRemark" style="width: 140px;">
+        <input type="text" value="{{ $name_list->remark ?? '' }}" data-id="{{ $name_list->id }}" class="updateRemark"
+            style="width: 140px;">
     </td>
 
     <td>

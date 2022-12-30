@@ -15,7 +15,6 @@ class SearchNameListController extends Controller
     public function index()
     {
         $name_lists = NameList::query();
-
         if (request('search')) {
             $name_lists->where('name', 'Like', '%' . request('search') . '%');
             $name_lists->orWhere('nrc', 'Like', '%' . request('search') . '%');
@@ -29,7 +28,6 @@ class SearchNameListController extends Controller
             $name_lists->orWhere('passport_number', 'Like', '%' . request('search') . '%');
         }
         $name_lists = $name_lists->orderBy('id', 'ASC')->get();
-
         return view('search_name_list.index', compact('name_lists'));
     }
 

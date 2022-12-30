@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         $total_demand = Demand::count();
-        $total_interview = Interview::count();
+
         $total_contract = Contract::count();
         $total_sending = Sending::count();
 
@@ -44,7 +44,13 @@ class HomeController extends Controller
 
         $total_reject = NameList::where('remark', '!=', '')->count();
 
+        $pre_interview = Interview::where('interview_type', 'pre_interview')
+            ->count();
+
+        $thai_interview = Interview::where('interview_type', 'employer_interview')
+            ->count();
+
         $users = User::all();
-        return view('home', compact('total_demand', 'total_interview', 'total_contract', 'total_sending', 'total_reject', 'pre_failed', 'thai_failed', 'users'));
+        return view('home', compact('total_demand', 'pre_interview', 'thai_interview', 'total_contract', 'total_sending', 'total_reject', 'pre_failed', 'thai_failed', 'users'));
     }
 }

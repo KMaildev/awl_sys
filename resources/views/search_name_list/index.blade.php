@@ -16,7 +16,8 @@
                                         name="search">
                                 </form>
 
-                                <a href="{{ route('name_list_clear') }}" class="dt-button create-new btn btn-danger btn-sm">
+                                <a href="{{ route('name_list_clear') }}" class="dt-button create-new btn btn-danger btn-sm"
+                                    hidden>
                                     <span>
                                         <i class="bx bx-plus me-sm-2"></i>
                                         <span class="d-none d-sm-inline-block">
@@ -156,164 +157,169 @@
 
                         <tbody class="table-border-bottom-0">
                             @php
-                                $i = 1;
+                                $i = 0;
                             @endphp
                             @foreach ($name_lists as $key => $name_list)
-                                @if ($name_list->medical_fail != '' || $name_list->remark != '' || $name_list->fail_cancel)
-                                    @php
-                                        $color = 'red';
-                                    @endphp
-                                @else
-                                    @php
-                                        $color = 'black';
-                                    @endphp
+                                @if ($name_list->sending_id !== null || $name_list->medical_fail != '' || $name_list->remark != '' || $name_list->fail_cancel != '')
+                                    @if ($name_list->medical_fail != '' || $name_list->remark != '' || $name_list->fail_cancel != '')
+                                        @php
+                                            $color = 'red';
+                                        @endphp
+                                    @else
+                                        @php
+                                            $color = 'black';
+                                        @endphp
+                                    @endif
+                                    <tr
+                                        style="color: {{ $color }}; background-color: {{ $name_list->bg_color ?? '' }}">
+
+                                        <td>
+                                            {{ $i + 1 }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->no ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->gender ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->name ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->date_of_birth ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->age ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->father_name ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->mother_name ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->qualification ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->nrc ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->physical_and_blindness_test ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            <input type="text" value="{{ $name_list->medical_fail ?? '' }}"
+                                                data-id="{{ $name_list->id }}" class="updateMedicalFail"
+                                                style="width: 140px;">
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->covid_vaccine_first_dose ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->covid_vaccine_second_dose ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->region ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->native_town ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->come_from_to_interview ?? '' }}
+                                        </td>
+
+
+                                        <td>
+                                            {{ $name_list->passport_issue_date ?? '' }}
+                                        </td>
+
+                                        <td>
+                                            {{ $name_list->expiry_date ?? '' }}
+                                        </td>
+
+
+                                        <td>
+                                            {{ $name_list->slip_date ?? '' }}
+                                        </td>
+
+
+                                        <td>
+                                            {{ $name_list->passport_number ?? '' }}
+                                        </td>
+
+
+                                        <td>
+                                            {{ $name_list->phone_number ?? '' }}
+                                        </td>
+
+
+                                        <td>
+                                            <input type="text" value="{{ $name_list->remark ?? '' }}"
+                                                data-id="{{ $name_list->id }}" class="updateRemark" style="width: 140px;">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" value="{{ $name_list->fail_cancel ?? '' }}"
+                                                data-id="{{ $name_list->id }}" class="updateRemark" style="width: 140px;">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" value="{{ $name_list->contract_no ?? '' }}"
+                                                data-id="{{ $name_list->id }}" class="updateContractNo"
+                                                style="width: 140px;">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" value="{{ $name_list->note ?? '' }}"
+                                                data-id="{{ $name_list->id }}" class="updateNote" style="width: 140px;">
+                                        </td>
+
+                                        {{-- PRE INTERVIEW --}}
+                                        <td>
+                                            {{ $name_list->interviews_table->interview_date ?? '' }}
+                                            @if ($name_list->interviews_table->interview_date ?? '')
+                                                @
+                                            @endif
+                                            {{ $name_list->interviews_table->interview_title ?? '' }}
+                                        </td>
+
+                                        {{-- CONTRACT --}}
+                                        <td>
+                                            {{ $name_list->contracts_table->overseas_agencie->employer_name ?? '' }}
+                                            @if ($name_list->contracts_table->overseas_agencie->employer_name ?? '')
+                                                @
+                                            @endif
+                                            {{ $name_list->contracts_table->contract_date ?? '' }}
+                                        </td>
+
+
+                                        {{-- Sending --}}
+                                        <td>
+                                            {{ $name_list->sendings_table->overseas_agencie->employer_name ?? '' }}
+                                            @if ($name_list->sendings_table->overseas_agencie->employer_name ?? '')
+                                                @
+                                            @endif
+                                            {{ $name_list->sendings_table->sending_date ?? '' }}
+                                        </td>
+
+
+                                    </tr>
                                 @endif
-                                <tr style="color: {{ $color }}; background-color: {{ $name_list->bg_color ?? '' }}">
-
-                                    <td>
-                                        {{ $loop->iteration }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->no ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->gender ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->name ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->date_of_birth ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->age ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->father_name ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->mother_name ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->qualification ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->nrc ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->physical_and_blindness_test ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        <input type="text" value="{{ $name_list->medical_fail ?? '' }}"
-                                            data-id="{{ $name_list->id }}" class="updateMedicalFail" style="width: 140px;">
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->covid_vaccine_first_dose ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->covid_vaccine_second_dose ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->region ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->native_town ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->come_from_to_interview ?? '' }}
-                                    </td>
-
-
-                                    <td>
-                                        {{ $name_list->passport_issue_date ?? '' }}
-                                    </td>
-
-                                    <td>
-                                        {{ $name_list->expiry_date ?? '' }}
-                                    </td>
-
-
-                                    <td>
-                                        {{ $name_list->slip_date ?? '' }}
-                                    </td>
-
-
-                                    <td>
-                                        {{ $name_list->passport_number ?? '' }}
-                                    </td>
-
-
-                                    <td>
-                                        {{ $name_list->phone_number ?? '' }}
-                                    </td>
-
-
-                                    <td>
-                                        <input type="text" value="{{ $name_list->remark ?? '' }}"
-                                            data-id="{{ $name_list->id }}" class="updateRemark" style="width: 140px;">
-                                    </td>
-
-                                    <td>
-                                        <input type="text" value="{{ $name_list->fail_cancel ?? '' }}"
-                                            data-id="{{ $name_list->id }}" class="updateRemark" style="width: 140px;">
-                                    </td>
-
-                                    <td>
-                                        <input type="text" value="{{ $name_list->contract_no ?? '' }}"
-                                            data-id="{{ $name_list->id }}" class="updateContractNo" style="width: 140px;">
-                                    </td>
-
-                                    <td>
-                                        <input type="text" value="{{ $name_list->note ?? '' }}"
-                                            data-id="{{ $name_list->id }}" class="updateNote" style="width: 140px;">
-                                    </td>
-
-                                    {{-- PRE INTERVIEW --}}
-                                    <td>
-                                        {{ $name_list->interviews_table->interview_date ?? '' }}
-                                        @if ($name_list->interviews_table->interview_date ?? '')
-                                            @
-                                        @endif
-                                        {{ $name_list->interviews_table->interview_title ?? '' }}
-                                    </td>
-
-                                    {{-- CONTRACT --}}
-                                    <td>
-                                        {{ $name_list->contracts_table->overseas_agencie->employer_name ?? '' }}
-                                        @if ($name_list->contracts_table->overseas_agencie->employer_name ?? '')
-                                            @
-                                        @endif
-                                        {{ $name_list->contracts_table->contract_date ?? '' }}
-                                    </td>
-
-
-                                    {{-- Sending --}}
-                                    <td>
-                                        {{ $name_list->sendings_table->overseas_agencie->employer_name ?? '' }}
-                                        @if ($name_list->sendings_table->overseas_agencie->employer_name ?? '')
-                                            @
-                                        @endif
-                                        {{ $name_list->sendings_table->sending_date ?? '' }}
-                                    </td>
-
-
-                                </tr>
                             @endforeach
                         </tbody>
                     </table>

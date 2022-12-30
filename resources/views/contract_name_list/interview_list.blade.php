@@ -53,34 +53,33 @@
 </div>
 
 @section('script')
-@section('script')
     {!! JsValidator::formRequest('App\Http\Requests\UpdateNameListContract', '#create-form') !!}
-@endsection
-<script>
-    $(document).ready(function() {
-        // Check or Uncheck All checkboxes
-        $("#checkall").change(function() {
-            var checked = $(this).is(':checked');
-            if (checked) {
-                $(".checkbox").each(function() {
-                    $(this).prop("checked", true);
-                });
-            } else {
-                $(".checkbox").each(function() {
-                    $(this).prop("checked", false);
-                });
-            }
-        });
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Check or Uncheck All checkboxes
+            $("#checkall").change(function() {
+                var checked = $(this).is(':checked');
+                if (checked) {
+                    $(".checkbox").each(function() {
+                        $(this).prop("checked", true);
+                    });
+                } else {
+                    $(".checkbox").each(function() {
+                        $(this).prop("checked", false);
+                    });
+                }
+            });
 
-        // Changing state of CheckAll checkbox 
-        $(".checkbox").click(function() {
-            if ($(".checkbox").length == $(".checkbox:checked").length) {
-                $("#checkall").prop("checked", true);
-            } else {
-                $("#checkall").prop("checked", false);
-            }
+            // Changing state of CheckAll checkbox 
+            $(".checkbox").click(function() {
+                if ($(".checkbox").length == $(".checkbox:checked").length) {
+                    $("#checkall").prop("checked", true);
+                } else {
+                    $("#checkall").prop("checked", false);
+                }
 
+            });
         });
-    });
-</script>
+    </script>
 @endsection

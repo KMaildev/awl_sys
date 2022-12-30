@@ -43,6 +43,7 @@ class NameList extends Model
         'created_at',
         'updated_at',
         'departure_date',
+        'note',
     ];
 
     public function pre_interviews_table()

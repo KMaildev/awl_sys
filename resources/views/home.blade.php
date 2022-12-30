@@ -38,10 +38,33 @@
                                     </div>
                                     <div class="card-info">
                                         <h5 class="card-title mb-0 me-2">
-                                            {{ $total_interview ?? 0 }}
+                                            {{ $pre_interview ?? 0 }}
                                         </h5>
                                         <small class="text-muted">
-                                            Interview Total
+                                            Pre Interview Total
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between" style="position: relative;">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="avatar">
+                                        <span class="avatar-initial bg-label-primary rounded-circle"><i
+                                                class="fa fa-users fs-4"></i></span>
+                                    </div>
+                                    <div class="card-info">
+                                        <h5 class="card-title mb-0 me-2">
+                                            {{ $thai_interview ?? 0 }}
+                                        </h5>
+                                        <small class="text-muted">
+                                            Thai Interview Total
                                         </small>
                                     </div>
                                 </div>

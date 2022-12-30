@@ -39,10 +39,10 @@
 
 
 @if ($errors->any())
-    <!-- <div class="alert alert-solid-danger alert-dismissible d-flex align-items-center" role="alert">
-    <i class="bx bx-xs bx-store me-2"></i>
-    Please check the form below for errors
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
-</div> -->
+    {{-- <div class="alert alert-solid-danger alert-dismissible d-flex align-items-center" role="alert">
+        <i class="bx bx-xs bx-store me-2"></i>
+        Please check the form below for errors
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        </button>
+    </div> --}}
 @endif

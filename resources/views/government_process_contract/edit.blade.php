@@ -24,8 +24,7 @@
 
         {{-- DOE DATE --}}
         <td>
-            <input type="text" id="DoeDate"
-                value="{{ $government_process_edit->demand_table->demand_date ?? '' }}">
+            <input type="text" id="DoeDate" value="{{ $government_process_edit->demand_table->demand_date ?? '' }}">
         </td>
 
         {{-- DOE NUMBER	 --}}
@@ -50,23 +49,23 @@
         <td>
             <input type="text" class="form-control form-control-sm @error('male') is-invalid @enderror"
                 name="male" value="{{ $government_process_edit->male ?? 0 }}" id="male"
-                oninput="TotalMaleFemale()">
+                oninput="TotalMaleFemale()" style="text-align: right; width: 100px;">
         </td>
 
         {{-- FEMALE	 --}}
         <td>
             <input type="text" class="form-control form-control-sm @error('female') is-invalid @enderror"
                 name="female" value="{{ $government_process_edit->female ?? 0 }}" id="female"
-                oninput="TotalMaleFemale()">
+                oninput="TotalMaleFemale()" style="text-align: right; width: 100px;">
         </td>
 
         <td>
             <input type="text" class="form-control form-control-sm" id="Total" readonly
-                style="text-align: right">
+                style="text-align: right; width: 100px;">
         </td>
 
         <td>
-            <input type="file" class="form-control form-control-sm" name="files">
+            <input type="file" class="form-control form-control-sm" name="files" style="width: 100px;">
         </td>
 
         <td class="text-center">

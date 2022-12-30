@@ -48,22 +48,24 @@
         {{-- MALE --}}
         <td>
             <input type="text" class="form-control form-control-sm @error('male') is-invalid @enderror"
-                name="male" value="0" id="male" oninput="TotalMaleFemale()">
+                name="male" value="0" id="male" oninput="TotalMaleFemale()"
+                style="text-align: right; width: 100px;">
         </td>
 
         {{-- FEMALE	 --}}
         <td>
             <input type="text" class="form-control form-control-sm @error('female') is-invalid @enderror"
-                name="female" value="0" id="female" oninput="TotalMaleFemale()">
+                name="female" value="0" id="female" oninput="TotalMaleFemale()"
+                style="text-align: right; width: 100px;">
         </td>
 
         <td>
             <input type="text" class="form-control form-control-sm" id="Total" readonly
-                style="text-align: right">
+                style="text-align: right; width: 100px;">
         </td>
 
         <td>
-            <input type="file" class="form-control form-control-sm" name="files">
+            <input type="file" class="form-control form-control-sm" name="files" style="width: 100px;">
         </td>
 
         <td class="text-center">

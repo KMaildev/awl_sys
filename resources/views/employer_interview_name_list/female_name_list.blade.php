@@ -12,7 +12,7 @@
 </a>
 
 <button type="button" class="btn btn-primary">
-    Total (Male)
+    Total (Female)
     <span class="badge bg-white text-primary">
         {{ $female_total ?? '' }}
     </span>

@@ -29,43 +29,43 @@
                                     #
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Employer
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     DOE DATE
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     DOE NUMBER
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     YGN to Myawaddy
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Myawaddy to Thai
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Male
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Female
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Total
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Files
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Action
                                 </th>
 
@@ -99,8 +99,8 @@
                     type: "GET",
                     dataType: "json",
                     success: function(data) {
-                        DoeDate.value = data.demand.demand_number;
-                        DoeNumber.value = data.demand.demand_date;
+                        DoeDate.value = data.demand.demand_date;
+                        DoeNumber.value = data.demand.demand_number;
                     }
                 });
             }

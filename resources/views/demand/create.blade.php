@@ -51,7 +51,7 @@
 
         <td>
             <input type="text" class="form-control form-control-sm" id="Total" readonly
-                style="text-align: right">
+                style="text-align: right; width: 100px;">
         </td>
 
         <td>

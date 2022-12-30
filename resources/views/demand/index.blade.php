@@ -28,43 +28,43 @@
                                     #
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Employer
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Demand Number
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Demand Date
                                 </th>
 
-                                <th class="text-center cw">
-                                    Approval Number (MM - Labor)
+                                <th class="text-center cw" style="width: 20%;">
+                                    Approval Number <br> (MM - Labor)
                                 </th>
 
-                                <th class="text-center cw">
-                                    Approval Date ( MM - Labor )
+                                <th class="text-center cw" style="width: 20%;">
+                                    Approval Date <br> ( MM - Labor )
                                 </th>
 
-                                <th class="text-center cw">
-                                    Male
+                                <th class="text-center cw" style="width: 20%;">
+                                    Male Total
                                 </th>
 
-                                <th class="text-center cw">
-                                    Female
+                                <th class="text-center cw" style="width: 20%;">
+                                    Female Total
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Total
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Files
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Action
                                 </th>
 

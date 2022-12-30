@@ -29,43 +29,43 @@
                                     #
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Employer & Demand
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     DOE Date
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     DOE Number
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Cabinet Date
                                 </th>
 
-                                <th class="text-center cw">
-                                    Approval Date ( MM - Labor )
+                                <th class="text-center cw" style="width: 20%;">
+                                    Approval Date <br> ( MM - Labor )
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Male
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Female
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Total
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Files
                                 </th>
 
-                                <th class="text-center cw">
+                                <th class="text-center cw" style="width: 20%;">
                                     Action
                                 </th>
 
@@ -100,9 +100,8 @@
                     type: "GET",
                     dataType: "json",
                     success: function(data) {
-                        console.log(data);
-                        DoeDate.value = data.demand.demand_number;
-                        DoeNumber.value = data.demand.demand_date;
+                        DoeDate.value = data.demand.demand_date;
+                        DoeNumber.value = data.demand.demand_number;
                     }
                 });
             }

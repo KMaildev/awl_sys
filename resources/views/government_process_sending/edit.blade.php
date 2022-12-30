@@ -65,7 +65,7 @@
         </td>
 
         <td>
-            <input type="file" class="form-control form-control-sm" name="files">
+            <input type="file" class="form-control form-control-sm" name="files" style="width: 100px;">
         </td>
 
         <td class="text-center">
